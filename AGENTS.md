@@ -20,7 +20,7 @@
 | 字段 | 内容 |
 |---|---|
 | `wallpaper` / `spider` / `logo` / `warningText` | 元信息。**`spider` 是加载全部站点用的 jar 包地址**，TVBox 加载配置时先下它，下不到就报 `configure 404` |
-| `sites` | **364** 个站点。193 个带外部 `api`、5 个带 `jar`、172 个带 `ext` |
+| `sites` | **364** 个站点（type 0: 1 / type 1: 51 / type 3: 312）。193 个 `api` 是 http 地址（其中 **只有 52 个是真正的采集站**，其余是 type 3 指向 spider 的代理地址）、5 个带 `jar`、177 个带 `ext`（其中 4 个 ext 是对象） |
 | `lives` | 1 组直播，走 `redirect` 代理 |
 | `parses` | 26 个解析器（本地 + 第三方聚合） |
 | `flags` | 22 个播放器标记 |
@@ -54,11 +54,14 @@
 git clone --depth 1 --filter=blob:none --sparse https://github.com/tvbw/18- $env:TEMP\tvbw-src
 git -C $env:TEMP\tvbw-src sparse-checkout set jar tv
 
-# 2. 用 $env:TEMP\recopy2.mjs 重建 resources/（按配置里的完整路径名复制）
-# 3. 用 $env:TEMP\gen_standalone.mjs 重新生成 tv18-standalone.json
+# 2. 重建 resources/（按配置里的完整路径名复制，脚本会保持上游原文件名）
+node tools\build-resources.mjs $env:TEMP\tvbw-src resources
+
+# 3. 重新生成自托管版
+node tools\make-standalone.mjs
 ```
 
-同步完**必须重跑 URL 实测**（见下面「验证」），确认还是 315/315 通过。
+同步完**必须重跑 URL 实测**（见下面「验证」），确认还是 632/632 通过。
 
 ## 历史修复（为什么这份配置长这样）
 
@@ -82,10 +85,15 @@ node -e "const b=require('fs').readFileSync('tv18-standalone.json');
 console.log('BOM:', b[0]===239, 'CR:', b.includes(13), 'valid:', !!JSON.parse(b.toString('utf8')))"
 
 # 3. 全量 URL 实测（最关键，中文/emoji/空格文件名只有实测才算数）
-node $env:TEMP\probe_v3.mjs    # → OK: 315 | failed: 0
+node tools\verify-urls.mjs tv18-standalone.json   # → 可达 632 | 失败 0
 ```
 
-## 🔧 做这类改动必踩的 5 个坑（本次真实踩过）
+## 🔧 做这类改动必踩的 8 个坑（本次真实踩过）
+
+1. **「URL 能下载」和「站点能用」是两件不同的事，不要混着讲。**
+   `verify-urls.mjs` 测的是本仓库文件能不能下载（632/632 通过），**只等于配置能加载**。
+   站点能不能播要跑 `diag-sites.mjs`（364 站点里当下只有 233 个连得上）。
+   混着汇报会让人以为「全部都能用」。
 
 1. **用正则从配置里提 URL 会在空格/括号处截断**。
    `[^"'\s\\)]+` 这种模式遇到 `JAV36 (1).py` 只取到 `JAV36`。
@@ -107,18 +115,33 @@ node $env:TEMP\probe_v3.mjs    # → OK: 315 | failed: 0
    手动 `encodeURIComponent` 会把已有的 `%E9%A3%9E` 变成 `%25E9...`，全变 404 假报。
    `gh-proxy.org` 对已编码 URL 还会返回 301。
 
+6. **node 的 `lookup` 覆盖要处理 `all: true`**。`https.get` 内部用 `all: true` 调 lookup，
+   直接 `cb(null, ip, 4)` 会抛 `ERR_INVALID_IP_ADDRESS`，看起来像「站连不上」其实是脚本坏了。
+   正确写法：`cb(null, o.all ? [{ address: ip, family: 4 }] : ip, 4)`。
+
+7. **TIMEOUT ≠ 死**。马来 ISP 的 DNS 污染会批量制造假 TIMEOUT（见「关键警告」第 1 条）；
+   单次超时也可能只是抖动（一个 343 KB 文件首测超时，重测 4 条通道全 200）。
+   **删源前必须换真 IP 复测。**
+
 ## ⚠️ 关键警告
 
-1. **自托管 ≠ 什么都能自己维护。** 你**能**维护的是「框架侧」：jar、py 脚本、
-   爬虫规则、直播列表（都在 `resources/` 里）。你**不能**维护的是配置里
-   **193 个采集站接口**（`xxzyapi.com` 这类 `api.php` 地址）——它们是第三方站点，
-   不在这个仓库里，挂了只能改配置换源，没法让它们复活。
-2. **「配置能加载」≠「每个源都能播放」**。上游 91 个主机里 **49 个已死**
-   （超时 / 解析失败 / 404），活着的多是采集接口。源的可用性取决于上游采集站是否还活着，
-   跟这份配置本身无关。
-3. **App 内必须先删掉旧配置**（不是覆盖），再**清缓存**，最后重新粘贴订阅地址。
+1. **用户在马来西亚，ISP 做 DNS 污染 —— 这条最容易把判断带错。**
+   Time/Unifi/Maxis 等按 MCMC 清单把大量成人域名统一解析到**同一个屏蔽 IP**
+   （实测 59 个不相关域名全指向 `175.139.142.25`）。所以「连不上」**大概率不是站死了**。
+   判别方法（`tools/diag-sites.mjs` 已实现）：本机 DNS 结果 vs `1.1.1.1` 结果不一致
+   → 拿真 IP 直连复测 → 通就是 DNS 污染。**实测证据：同网络换 DNS 后 12/12 全部 200。**
+   解法是盒子设私人 DNS `1dot1dot1.cloudflare-dns.com`，值约 45 个源，别去改配置。
+   **绝不因为一次 TIMEOUT 就删源。**
+2. **自托管 ≠ 什么都能自己维护。** 你**能**维护的是「框架侧」：jar、py 脚本、
+   爬虫规则、直播列表（都在 `resources/` 里）。你**不能**维护的是
+   **52 个采集站接口**（`xxzyapi.com` 这类 `api.php` 地址）和 312 个爬虫站的**目标站**
+   ——它们是第三方站点，挂了只能改配置换源，没法让它们复活。
+3. **「配置能加载」≠「每个源都能播放」**。实测（马来西亚本机，2026-11）：
+   现在可用 233/364 = 64%，改 DNS 后 278/364 = 76%。**76% 是上限**——只测到目标域连得上，
+   爬虫规则是否还匹配当前网页结构测不出来，而「网站改版导致脚本失效」才是爬虫站最常见的死法。
+4. **App 内必须先删掉旧配置**（不是覆盖），再**清缓存**，最后重新粘贴订阅地址。
    TVBox 会缓存旧配置和旧 jar，光换地址不够。
-4. **版权风险**：`resources/` 里是成人内容的采集脚本与爬虫 jar。GitHub 内容政策
+5. **版权风险**：`resources/` 里是成人内容的采集脚本与爬虫 jar。GitHub 内容政策
    有可能处理这类内容，公开仓库请自行评估。
 
 ## 本机环境（如果你是被 AI 接手）
