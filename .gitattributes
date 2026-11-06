@@ -1,0 +1,20 @@
+# 只约束根目录的配置与脚本, 不要写成无斜杠的 *.json ——
+# 那样会连 resources/ 里的上游文件一起被规范化, 下次 add 就是一堆假 diff。
+/tv18.json              text eol=lf
+/tv18-standalone.json   text eol=lf
+/README.md              text eol=lf
+/AGENTS.md              text eol=lf
+/tools/*.mjs            text eol=lf
+
+# resources/ 是上游文件的原样副本, 永远不做任何换行/编码转换
+/resources/**           -text
+
+# 二进制显式标注
+*.jar   binary
+*.gif   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.ico   binary
+*.pdf   binary
+*.docx  binary
