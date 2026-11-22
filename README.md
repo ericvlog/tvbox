@@ -7,8 +7,8 @@
 
 | 文件 | 说明 |
 |---|---|
-| **`tv18.json`** | 主配置（364 站点）。脚本/jar 从**上游 `tvbw/18-`** 加载 |
-| **`tv18-standalone.json`** | **自托管版**。同样的 364 站点，脚本/jar 全部从**本仓库 `resources/`** 加载 |
+| **`tv18.json`** | 主配置（365 站点）。脚本/jar 从**上游 `tvbw/18-`** 加载 |
+| **`tv18-standalone.json`** | **自托管版**。同样的 365 站点，脚本/jar 全部从**本仓库 `resources/`** 加载 |
 | `resources/` | 316 个上游文件副本（14.6 MB）：jar、py 脚本、XYQHiker/XBPQ 定义、直播列表 |
 | `tools/diag-sites.mjs` | **站点可用性体检**：区分「真死了」和「只是被 ISP 的 DNS 屏蔽」 |
 | `tools/build-resources.mjs` | 从上游克隆重建 `resources/` |
@@ -102,6 +102,39 @@ json 定义 + 7.8 MB 直播列表）全部复制到本仓库 `resources/`，并�
    64% / 改 DNS 后 76%，且这是上限（原因见上一节）。
 4. **App 内必须先删掉旧配置**（不是覆盖）→ **清缓存** → 再粘贴新地址。
    否则 TVBox 会一直用缓存里的旧配置和旧 jar。
+
+## 🖥 第 1 个源 `SpankBang[网关]` 需要本机网关
+
+配置里第一条 `spankbang-lan`（`type: 1`，`api: http://10.126.39.223:8080/api.php/provide/vod/`）
+**不是公网采集站**，而是局域网里一台 PC 上跑的本机网关。原因：
+
+spankbang.com 前面挂的是 Cloudflare **托管质询**，换了 UA / TLS 指纹 / 无头浏览器全部被挡：
+
+```
+HTTP/1.1 403 Forbidden
+Cf-Mitigated: challenge
+Server: cloudflare
+```
+
+TVBox 的 spider 跑在 OkHttp / drpy 里，没有浏览器环境，过不去 —— 所以配置里原本那条
+`🔞[待修复]spankbang[XYQHiker]` 一直修不好。网关的做法是**用有头 Chrome 过质询**，
+再把渲染后的页面解析成 MacCMS JSON 吐给 TVBox。
+
+**用法**：
+
+1. 在跑网关的 PC 上双击 `start.cmd`（代码在 PC 的 `C:\Users\plsharevme\tvbox-gateway\`，未入库）
+2. TV 盒子与 PC 在**同一局域网**，且 PC 防火墙放行 8080 入站：
+   ```cmd
+   netsh advfirewall firewall add rule name="SpankBang TVBox Gateway 8080" dir=in action=allow protocol=TCP localport=8080
+   ```
+3. **PC 关机 / 网关关闭时，这个源就是空的**（其他 364 个源不受影响）
+
+**换机器 / 换网络要改 IP**：`api` 里的 `10.126.39.223` 是写死的内网地址，PC 换了 Wi-Fi
+或路由器重新分配 IP 后，把它改成新的内网 IP 即可（`ipconfig` 查）。
+
+抽风的排查顺序：手机浏览器打不开 `http://<IP>:8080/` → 防火墙；打得开但列表转圈 →
+网关窗口里的 Chrome 挂了（重开即可）；能出列表但播放失败 → 直链 token 过期（约 2 小时），
+重新进详情页。
 
 ## 历史：原来为什么报 configure 404
 

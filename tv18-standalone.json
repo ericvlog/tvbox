@@ -5,6 +5,14 @@
   "warningText": "禁止任何商业用途，仅限个人学习爬虫原理使用。",
   "sites": [
     {
+      "key": "spankbang-lan",
+      "name": "SpankBang[网关]",
+      "type": 1,
+      "api": "http://10.126.39.223:8080/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
       "key": "资源管理.py",
       "name": "资源管理[py]",
       "type": 3,
