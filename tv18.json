@@ -13,6 +13,14 @@
       "quickSearch": 1
     },
     {
+      "key": "sexkbj-py",
+      "name": "SexKBJ[韩]",
+      "type": 3,
+      "api": "https://gh-proxy.org/https://raw.githubusercontent.com/ericvlog/tvbox/main/tools/sexkbj.py",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
       "key": "资源管理.py",
       "name": "资源管理[py]",
       "type": 3,
