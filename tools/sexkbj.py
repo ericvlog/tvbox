@@ -11,6 +11,7 @@
 
 import json
 import re
+import sys
 import time
 from urllib.parse import quote
 
@@ -21,13 +22,22 @@ EMBED_HOST = "https://sexkbj.top"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
 PAGE_SIZE = 20
-VER = "v3"
+VER = "v4"
 HEADERS = {
     "User-Agent": UA,
     "Accept": "text/html,application/json,*/*",
     "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
 }
 FIELDS = "id,date,link,title,excerpt,featured_media"
+
+# 站点分类的固定 id（REST 挂了也能显示分类，2026-11-24 实测条数）
+STATIC_CATS = [
+    {"type_id": "3", "type_name": "韩国BJ 10.1万", "type_flag": "1"},
+    {"type_id": "966", "type_name": "韩国素人 3.1万", "type_flag": "1"},
+    {"type_id": "95", "type_name": "AfreecaTV 3057", "type_flag": "1"},
+    {"type_id": "12", "type_name": "Premium 2134", "type_flag": "1"},
+    {"type_id": "latest", "type_name": "最新", "type_flag": "1"},
+]
 
 # ------------------------------------------------------------ packer ---------
 ALPHA = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -134,8 +144,10 @@ class Spider(object):
         self.s.headers.update(HEADERS)
         self.timeout = 12
         self._cats = None
+        self._def_cache = {}
         self._row_cache = {}
         self._m3u8_cache = {}
+        self._last_err = None
 
     def init(self, extend=""):
         try:
@@ -149,7 +161,40 @@ class Spider(object):
         h = {}
         if referer:
             h["Referer"] = referer
-        return self.s.get(url, headers=h, timeout=timeout or self.timeout)
+        try:
+            return self.s.get(url, headers=h, timeout=timeout or self.timeout)
+        except Exception as e:
+            # 盒子侧常见的 SSL / DNS 失败：降级重试一次
+            if "SSL" in str(e) or "Certificate" in type(e).__name__:
+                return self.s.get(url, headers=h, timeout=timeout or self.timeout, verify=False)
+            raise
+
+    # ---- 自诊断：任何失败都把原因显示在屏幕上 -------------------------
+    @staticmethod
+    def _row(name, remarks="", content=""):
+        return {"vod_id": "", "vod_name": name, "vod_pic": "",
+                "vod_remarks": remarks, "vod_content": content}
+
+    def _probe(self, label, url, timeout=6):
+        t0 = time.time()
+        try:
+            r = self.s.get(url, timeout=timeout)
+            return "%s %d %.1fs" % (label, r.status_code, time.time() - t0)
+        except Exception as e:
+            return "%s 失败 %s" % (label, type(e).__name__)
+
+    def _diag(self, err=None):
+        rows = []
+        if err is not None:
+            rows.append(self._row("[诊断] %s: %s" % (type(err).__name__, str(err)[:80]),
+                                  "把这一行截图发我", repr(err)[:300]))
+        rows.append(self._row("[诊断] %s | python %s | requests %s"
+                              % (VER, sys.version.split()[0], getattr(requests, "__version__", "?")),
+                              "环境", ""))
+        rows.append(self._row("[诊断] " + self._probe("站点", BASE + "/"), "连通性", BASE))
+        rows.append(self._row("[诊断] " + self._probe("接口", self._posts_url("latest", 1)),
+                              "连通性", "wp-json"))
+        return rows
 
     def _json(self, url):
         r = self._get(url)
@@ -249,21 +294,38 @@ class Spider(object):
                 "limit": PAGE_SIZE, "total": total}
 
     # ---- 六个方法 ---------------------------------------------------
+    # 约定：任何一个方法失败都不许抛异常、也不许返回空列表 ——
+    # 返回「诊断行」让失败原因直接显示在海报位上（盒子侧看不到日志）。
     def homeContent(self, filter=True):
-        return {"class": self._categories(), "filters": {}, "list": []}
+        try:
+            cats = self._categories()
+        except Exception as e:
+            cats = []
+            self._last_err = e
+        if not cats:
+            cats = list(STATIC_CATS)
+        return {"class": cats, "filters": {}, "list": []}
 
     def homeVideoContent(self):
         try:
-            return {"list": self._listing(self._posts_url("latest", 1), 1)["list"]}
-        except Exception:
-            return {"list": []}
+            rows = self._listing(self._posts_url("latest", 1), 1)["list"]
+            if rows:
+                return {"list": self._diag(None)[:1] + rows}
+            return {"list": self._diag(None) + [self._row("[诊断] 接口返回 0 条", "换一页试试")]}
+        except Exception as e:
+            return {"list": self._diag(e)}
 
     def categoryContent(self, tid, pg, filter=False, extend=""):
+        pg = max(1, int(pg or 1))
         try:
-            return self._listing(self._posts_url(tid, pg), pg)
+            out = self._listing(self._posts_url(tid, pg), pg)
+            if out["list"]:
+                return out
+            out["list"] = self._diag(None) + [self._row("[诊断] 该分类第 %d 页 0 条" % pg, str(tid))]
+            return out
         except Exception as e:
-            return {"list": [], "page": int(pg), "pagecount": 1, "limit": PAGE_SIZE,
-                    "total": 0, "msg": str(e)[:60]}
+            return {"list": self._diag(e), "page": pg, "pagecount": 1,
+                    "limit": PAGE_SIZE, "total": 0}
 
     def searchContent(self, key, quick=False, pg="1"):
         pg = max(1, int(pg or 1))
@@ -271,8 +333,9 @@ class Spider(object):
                % (BASE, PAGE_SIZE, pg, quote(key), FIELDS))
         try:
             return self._listing(url, pg)
-        except Exception:
-            return {"list": [], "page": pg, "pagecount": 1, "limit": PAGE_SIZE, "total": 0}
+        except Exception as e:
+            return {"list": self._diag(e), "page": pg, "pagecount": 1,
+                    "limit": PAGE_SIZE, "total": 0}
 
     def detailContent(self, ids):
         """尽量少请求 + 绝不抛异常：TVBox 只要没拿到 list 就会「点不进去」。"""
