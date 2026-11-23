@@ -1,0 +1,14 @@
+{
+  "sites": [
+    {
+      "key": "sexkbj-py",
+      "name": "SexKBJ[韩]",
+      "type": 3,
+      "api": "https://cdn.jsdelivr.net/gh/ericvlog/tvbox@9434294/tools/sexkbj.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0
+    }
+  ],
+  "lives": []
+}
