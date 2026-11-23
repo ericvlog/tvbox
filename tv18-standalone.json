@@ -5,14 +5,6 @@
   "warningText": "禁止任何商业用途，仅限个人学习爬虫原理使用。",
   "sites": [
     {
-      "key": "pyprobe",
-      "name": "PY探测(测引擎)",
-      "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/ericvlog/tvbox@44eb936/tools/pyprobe.py",
-      "searchable": 0,
-      "quickSearch": 0
-    },
-    {
       "key": "spankbang-lan",
       "name": "SpankBang[网关]",
       "type": 1,
