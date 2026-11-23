@@ -21,6 +21,14 @@
       "quickSearch": 1
     },
     {
+      "key": "sexkbj-lan",
+      "name": "SexKBJ[网关]",
+      "type": 1,
+      "api": "http://10.126.39.223:8081/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
       "key": "sexkbj-py",
       "name": "SexKBJ[韩]",
       "type": 3,
