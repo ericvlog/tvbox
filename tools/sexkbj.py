@@ -1,11 +1,14 @@
-﻿# -*- coding: utf-8 -*-
-# TVBox / CatVodSpider Python 婧?for sexkbj.com
-# 渚濊禆锛氫粎 requests锛堢數瑙嗙洅瀛愯嚜甯︼級銆備笉闇€瑕佹湰鏈虹綉鍏炽€佷笉闇€瑕佹祻瑙堝櫒銆佷笉闇€瑕?node銆?#
-# 绔欑偣缁撴瀯锛?026-11-23 瀹炴祴锛夛細
-#   鍒楄〃  WordPress REST  /wp-json/wp/v2/posts?_fields=id,date,link,title,featured_media
-#   灏侀潰  /wp-json/wp/v2/media?include=<id,id,...>   涓€娆℃壒閲忓彇 20 寮?#   鍒嗙被  /wp-json/wp/v2/categories
-#   璇︽儏  鏂囩珷椤甸噷鏈夊ぇ鍐?<IFRAME SRC="https://sexkbj.top/embed/<hash>">
-#   鎾斁  embed 椤靛唴 JS 琚?Dean Edwards packer 鍖呬綇锛岃В鍖呭緱 links.hls4 = m3u8锛?6h token锛?
+# -*- coding: utf-8 -*-
+# TVBox / CatVodSpider Python 源 for sexkbj.com
+# 依赖：仅 requests（电视盒子自带）。不需要本机网关、不需要浏览器、不需要 node。
+#
+# 站点结构（2026-11-23 实测）：
+#   列表  WordPress REST  /wp-json/wp/v2/posts?_fields=id,date,link,title,featured_media
+#   封面  /wp-json/wp/v2/media?include=<id,id,...>   一次批量取 20 张
+#   分类  /wp-json/wp/v2/categories
+#   详情  文章页里有大写 <IFRAME SRC="https://sexkbj.top/embed/<hash>">
+#   播放  embed 页内 JS 被 Dean Edwards packer 包住，解包得 links.hls4 = m3u8（36h token）
+
 import json
 import re
 import time
@@ -31,7 +34,7 @@ ALPHA = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 def _unbase(c, a):
-    """澶嶅埢 JS 閲岀殑 e(c)锛氭妸搴忓彿 c 鎸?a 杩涘埗杞垚 packer 鐢ㄧ殑璁板彿銆?""
+    """复刻 JS 里的 e(c)：把序号 c 按 a 进制转成 packer 用的记号。"""
     if c < a:
         return ALPHA[c] if c < 36 else chr(c + 29)
     tail = chr(c % a + 29) if c % a > 35 else ALPHA[c % a]
@@ -39,7 +42,7 @@ def _unbase(c, a):
 
 
 def find_packer(html):
-    """浠?HTML 閲屾姞鍑?eval(function(p,a,c,k,e,d){...}(...)) 鐨勬暣娈点€?""
+    """从 HTML 里抠出 eval(function(p,a,c,k,e,d){...}(...)) 的整段。"""
     start = html.find("eval(function(p,a,c,k,e,d)")
     if start < 0:
         start = html.find("eval(function (p,a,c,k,e,d)")
@@ -59,7 +62,7 @@ def find_packer(html):
 
 
 def _tokens(s):
-    """鎶婂弬鏁颁覆鍒囨垚 (寮曞彿, 鍐呭) 鍒楄〃锛屾敮鎸佸崟/鍙屽紩鍙蜂笌瑁告暟瀛椼€?""
+    """把参数串切成 (引号, 内容) 列表，支持单/双引号与裸数字。"""
     out, i = [], 0
     while i < len(s):
         ch = s[i]
@@ -89,7 +92,7 @@ def _tokens(s):
 
 
 def unpack(src):
-    """src = find_packer(html) 鐨勮繑鍥炲€硷紱杩斿洖瑙ｅ寘鍚庣殑 JS 婧愮爜銆?""
+    """src = find_packer(html) 的返回值；返回解包后的 JS 源码。"""
     if not src:
         return ""
     m = re.match(r"^function\s*\(p,a,c,k,e,d\)\s*\{(.*)\}\((.*)\)$", src, re.S)
@@ -192,7 +195,7 @@ class Spider(object):
         return base
 
     def _pics(self, items):
-        """涓€娆℃壒閲忔妸 featured_media 鎹㈡垚鐪熷疄鍥剧墖 URL銆?""
+        """一次批量把 featured_media 换成真实图片 URL。"""
         ids = [str(i.get("featured_media") or 0) for i in items]
         ids = [x for x in ids if x and x != "0"]
         if not ids:
@@ -245,7 +248,7 @@ class Spider(object):
         return {"list": rows, "page": int(pg), "pagecount": max(1, total_pages),
                 "limit": PAGE_SIZE, "total": total}
 
-    # ---- 鍏釜鏂规硶 ---------------------------------------------------
+    # ---- 六个方法 ---------------------------------------------------
     def homeContent(self, filter=True):
         return {"class": self._categories(), "filters": {}, "list": []}
 
@@ -272,7 +275,7 @@ class Spider(object):
             return {"list": [], "page": pg, "pagecount": 1, "limit": PAGE_SIZE, "total": 0}
 
     def detailContent(self, ids):
-        """灏介噺灏戣姹?+ 缁濅笉鎶涘紓甯革細TVBox 鍙娌℃嬁鍒?list 灏变細銆岀偣涓嶈繘鍘汇€嶃€?""
+        """尽量少请求 + 绝不抛异常：TVBox 只要没拿到 list 就会「点不进去」。"""
         vod_id = str(ids[0]) if isinstance(ids, (list, tuple)) else str(ids)
         vod_id = re.sub(r"[^0-9].*$", "", vod_id) or vod_id
         t_start = time.time()
@@ -280,15 +283,15 @@ class Spider(object):
                "vod_play_from": "sexkbj", "vod_play_url": "",
                "vod_year": "", "vod_remarks": ""}
 
-        # 涓€姝ュ埌浣嶏細/?p=<id> 浼?302 鍒版寮忔枃绔犻〉锛岀渷鎺変竴娆?REST 璋冪敤
+        # 一步到位：/?p=<id> 会 302 到正式文章页，省掉一次 REST 调用
         html, link = "", BASE + "/?p=" + vod_id
         try:
             r = self._get(link, timeout=10)
             html = r.text or ""
             link = r.url or link
         except Exception as e:
-            out["vod_content"] = "鎵撳紑璇︽儏椤靛け璐? " + str(e)[:80]
-            out["vod_name"] = "绗?" + vod_id + " 鍙风墖锛堥〉闈㈡墦涓嶅紑锛?
+            out["vod_content"] = "打开详情页失败: " + str(e)[:80]
+            out["vod_name"] = "第 " + vod_id + " 号片（页面打不开）"
             return {"list": [out]}
 
         title = ""
@@ -297,10 +300,10 @@ class Spider(object):
             m = re.search(r"<title>(.*?)</title>", html, re.S | re.I)
         if m:
             title = self._text(m.group(1))
-            title = re.split(r"\s+[-|鈥揮\s+", title)[0]
+            title = re.split(r"\s+[-|–]\s+", title)[0]
             title = re.sub(r"[_\s]*sexkbj\s*$", "", title, flags=re.I).strip()
         if not title:
-            title = "绗?" + vod_id + " 鍙风墖"
+            title = "第 " + vod_id + " 号片"
 
         pic = ""
         p = re.search(r'<meta[^>]+(?:og:image|itemprop="thumbnailUrl")[^>]+content="([^"]+)"',
@@ -310,7 +313,7 @@ class Spider(object):
 
         cached = self._row_cache.get(vod_id) or {}
         if cached:
-            if title.startswith("绗?"):
+            if title.startswith("第 "):
                 title = cached.get("vod_name") or title
             if not pic:
                 pic = cached.get("vod_pic") or ""
@@ -328,10 +331,11 @@ class Spider(object):
         plays = []
         m = re.search(r"https://sexkbj\.top/embed/[A-Za-z0-9_\-]+", html, re.I)
         if m:
-            digest = m.group(0).rsplit("/", 1)[-1]
-            plays.append("绾胯矾1$sb://" + digest)
+            # 详情只发一个请求：播放地址留到点播放时再解析（playerContent），
+            # 免得详情 4-9 秒被 TVBox 的超时判死（这是「点不进去」的常见原因）
+            plays.append("线路1$sb://" + m.group(0).rsplit("/", 1)[-1])
         else:
-            text = (text + " | 璇ョ墖娌℃湁鍐呭祵鎾斁鍣?).strip()
+            text = (text + " | 该片没有内嵌播放器").strip()
 
         out.update({"vod_name": title, "vod_pic": pic,
                     "vod_content": ("[" + VER + "] " + text).strip(),
@@ -340,7 +344,7 @@ class Spider(object):
         return {"list": [out]}
 
     def _pick_alive(self, js):
-        """瑙ｅ寘鍚庣殑 JS 閲屽彲鑳芥湁 hls4/hls3/hls2 澶氭潯绾胯矾锛屾寫绗竴鏉＄湡鑳藉彇鍒版挱鏀惧垪琛ㄧ殑銆?""
+        """解包后的 JS 里可能有 hls4/hls3/hls2 多条线路，挑第一条真能取到播放列表的。"""
         cands = []
         for u in re.findall(r"https?://[^\"'\s\\]+?\.m3u8[^\"'\s\\]*", js or ""):
             if u not in cands:
@@ -370,8 +374,9 @@ class Spider(object):
                 url = hit[0]
             else:
                 try:
-                    js = unpack(find_packer(self._get(EMBED_HOST + "/embed/" + digest,
-                                                      referer=BASE + "/", timeout=8).text))
+                    ehtml = self._get(EMBED_HOST + "/embed/" + digest,
+                                      referer=BASE + "/", timeout=8).text
+                    js = unpack(find_packer(ehtml))
                     got = self._pick_alive(js) or grab_m3u8(js) or grab_mp4(js)
                     if got:
                         self._m3u8_cache[digest] = (got, time.time())
@@ -388,12 +393,12 @@ if __name__ == "__main__":
     sp.init("")
     t0 = time.time()
     hc = sp.homeContent()
-    print("homeContent %d 绫?%.2fs:" % (len(hc["class"]), time.time() - t0),
+    print("homeContent %d 类 %.2fs:" % (len(hc["class"]), time.time() - t0),
           [(c["type_name"], c["type_id"]) for c in hc["class"]])
 
     t0 = time.time()
     hv = sp.homeVideoContent()["list"]
-    print("homeVideoContent %d 鏉?%.2fs" % (len(hv), time.time() - t0))
+    print("homeVideoContent %d 条 %.2fs" % (len(hv), time.time() - t0))
     for v in hv[:3]:
         print("   ", v["vod_id"], v["vod_name"][:44], "|", v["vod_pic"][-40:])
 
