@@ -21,6 +21,7 @@ EMBED_HOST = "https://sexkbj.top"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
 PAGE_SIZE = 20
+VER = "v2"
 HEADERS = {
     "User-Agent": UA,
     "Accept": "text/html,application/json,*/*",
@@ -133,6 +134,7 @@ class Spider(object):
         self.s.headers.update(HEADERS)
         self.timeout = 12
         self._cats = None
+        self._row_cache = {}
 
     def init(self, extend=""):
         try:
@@ -232,6 +234,8 @@ class Spider(object):
         data, hd = self._json(url)
         pics = self._pics(data)
         rows = [self._vod(x, pics) for x in data]
+        for r in rows:
+            self._row_cache[r["vod_id"]] = r
         try:
             total_pages = int(hd.get("X-WP-TotalPages") or 1)
         except Exception:
@@ -270,48 +274,87 @@ class Spider(object):
             return {"list": [], "page": pg, "pagecount": 1, "limit": PAGE_SIZE, "total": 0}
 
     def detailContent(self, ids):
+        """尽量少请求 + 绝不抛异常：TVBox 只要没拿到 list 就会「点不进去」。"""
         vod_id = str(ids[0]) if isinstance(ids, (list, tuple)) else str(ids)
+        vod_id = re.sub(r"[^0-9].*$", "", vod_id) or vod_id
+        t_start = time.time()
         out = {"vod_id": vod_id, "vod_name": "", "vod_pic": "", "vod_content": "",
-               "vod_play_from": "sexkbj", "vod_play_url": ""}
+               "vod_play_from": "sexkbj", "vod_play_url": "",
+               "vod_year": "", "vod_remarks": ""}
+
+        # 一步到位：/?p=<id> 会 302 到正式文章页，省掉一次 REST 调用
+        html, link = "", BASE + "/?p=" + vod_id
         try:
-            data, _ = self._json("%s/wp-json/wp/v2/posts/%s?_fields=%s,content"
-                                 % (BASE, vod_id, FIELDS))
+            r = self._get(link, timeout=10)
+            html = r.text or ""
+            link = r.url or link
         except Exception as e:
-            out["vod_content"] = "取详情失败: " + str(e)[:80]
+            out["vod_content"] = "打开详情页失败: " + str(e)[:80]
+            out["vod_name"] = "第 " + vod_id + " 号片（页面打不开）"
             return {"list": [out]}
 
-        title = self._text((data.get("title") or {}).get("rendered", ""))
-        title = re.sub(r"[_\s]*sexkbj\s*$", "", title, flags=re.I).strip()
-        link = data.get("link") or ("%s/?p=%s" % (BASE, vod_id))
-        date = (data.get("date") or "")[:10]
-        pics = self._pics([data])
-        pic = pics.get(str(data.get("featured_media") or ""), "")
-        text = self._text((data.get("excerpt") or {}).get("rendered", ""))
+        title = ""
+        m = re.search(r'<h1[^>]*class="[^"]*entry-title[^"]*"[^>]*>(.*?)</h1>', html, re.S | re.I)
+        if not m:
+            m = re.search(r"<title>(.*?)</title>", html, re.S | re.I)
+        if m:
+            title = self._text(m.group(1))
+            title = re.split(r"\s+[-|–]\s+", title)[0]
+            title = re.sub(r"[_\s]*sexkbj\s*$", "", title, flags=re.I).strip()
+        if not title:
+            title = "第 " + vod_id + " 号片"
+
+        pic = ""
+        p = re.search(r'<meta[^>]+(?:og:image|itemprop="thumbnailUrl")[^>]+content="([^"]+)"',
+                      html, re.I)
+        if p:
+            pic = p.group(1)
+
+        cached = self._row_cache.get(vod_id) or {}
+        if cached:
+            if title.startswith("第 "):
+                title = cached.get("vod_name") or title
+            if not pic:
+                pic = cached.get("vod_pic") or ""
+
+        date = ""
+        d = re.search(r'itemprop="uploadDate"[^>]+content="(\d{4}-\d{2}-\d{2})', html, re.I)
+        if d:
+            date = d.group(1)
+
+        text = ""
+        mde = re.search(r'<meta[^>]+name="description"[^>]+content="([^"]*)"', html, re.I)
+        if mde:
+            text = self._text(mde.group(1))
 
         plays = []
-        try:
-            html = self._get(link).text
-            if not pic:
-                p = re.search(r'<meta[^>]+(?:og:image|itemprop="thumbnailUrl")[^>]+content="([^"]+)"',
-                              html, re.I)
-                if p:
-                    pic = p.group(1)
-            m = re.search(r"https://sexkbj\.top/embed/[A-Za-z0-9_\-]+", html, re.I)
-            if m:
-                embed = m.group(0)
-                ehtml = self._get(embed, referer=link).text
-                js = unpack(find_packer(ehtml))
-                url = self._pick_alive(js)
-                if url:
-                    plays.append("线路1$" + url)
-                else:
-                    text = (text + " | 该片所有线路都连不上（片源挂了，换一部）").strip()
+        m = re.search(r"https://sexkbj\.top/embed/[A-Za-z0-9_\-]+", html, re.I)
+        if m:
+            embed = m.group(0)
+            digest = embed.rsplit("/", 1)[-1]
+            # 时间预算：详情已经花太久就直接交给 playerContent 现取，
+            # 免得 TVBox 的详情超时把整页判死（这是「点不进去」最常见的原因）
+            budget = 2.0 - (time.time() - t_start)
+            if budget < 0.6:
+                plays.append("线路1$sb://" + digest)
             else:
-                text = (text + " | 该片没有内嵌播放器").strip()
-        except Exception as e:
-            text = (text + " | 解析失败: " + str(e)[:60]).strip()
+                try:
+                    ehtml = self._get(embed, referer=link,
+                                      timeout=max(1.5, min(4.0, budget))).text
+                    js = unpack(find_packer(ehtml))
+                    url = self._pick_alive(js)
+                    if url:
+                        plays.append("线路1$" + url)
+                    else:
+                        plays.append("线路1$sb://" + digest)
+                        text = (text + " | 当前片源无响应，点播放会再试一次").strip()
+                except Exception:
+                    plays.append("线路1$sb://" + digest)
+        else:
+            text = (text + " | 该片没有内嵌播放器").strip()
 
-        out.update({"vod_name": title, "vod_pic": pic, "vod_content": text,
+        out.update({"vod_name": title, "vod_pic": pic,
+                    "vod_content": ("[" + VER + "] " + text).strip(),
                     "vod_year": date[:4], "vod_remarks": date,
                     "vod_play_url": "#".join(plays)})
         return {"list": [out]}
@@ -328,9 +371,9 @@ class Spider(object):
         if not cands:
             return ""
         cands.sort(key=lambda x: 0 if "_n/master.m3u8" in x else 1)
-        for u in cands[:4]:
+        for u in cands[:2]:
             try:
-                r = self._get(u, referer=EMBED_HOST + "/", timeout=8)
+                r = self._get(u, referer=EMBED_HOST + "/", timeout=3)
                 if r.status_code < 400 and (".m3u8" not in u or r.text.lstrip().startswith("#EXTM3U")):
                     return u
             except Exception:
