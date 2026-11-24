@@ -17,12 +17,22 @@ from urllib.parse import quote
 
 import requests
 
+# 电视端内核是把本文件当插件加载：必须先用内核提供的基类，
+# 只写 `class Spider(object)` 会让源整片空白（基类里的 extend / fetch 等拿不到）。
+try:
+    sys.path.append('..')
+    from base.spider import Spider as _Base  # noqa: F401
+except Exception:                            # 本地调试/无基类时降级
+    class _Base(object):
+        def __init__(self):
+            pass
+
 BASE = "https://sexkbj.com"
 EMBED_HOST = "https://sexkbj.top"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
 PAGE_SIZE = 20
-VER = "v4"
+VER = "v5"
 HEADERS = {
     "User-Agent": UA,
     "Accept": "text/html,application/json,*/*",
@@ -138,8 +148,12 @@ def grab_mp4(js):
 
 
 # ------------------------------------------------------------- spider --------
-class Spider(object):
+class Spider(_Base):
     def __init__(self):
+        try:
+            super().__init__()
+        except Exception:
+            pass
         self.s = requests.Session()
         self.s.headers.update(HEADERS)
         self.timeout = 12
