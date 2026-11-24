@@ -32,7 +32,7 @@ EMBED_HOST = "https://sexkbj.top"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
 PAGE_SIZE = 20
-VER = "v5"
+VER = "v6"
 HEADERS = {
     "User-Agent": UA,
     "Accept": "text/html,application/json,*/*",
@@ -294,6 +294,8 @@ class Spider(_Base):
         data, hd = self._json(url)
         pics = self._pics(data)
         rows = [self._vod(x, pics) for x in data]
+        # 没有封面的条目直接丢掉：空海报会让客户端从「海报墙」退化成「一行一行」的列表
+        rows = [r for r in rows if r.get("vod_pic")]
         for r in rows:
             self._row_cache[r["vod_id"]] = r
         try:
@@ -324,19 +326,15 @@ class Spider(_Base):
         try:
             rows = self._listing(self._posts_url("latest", 1), 1)["list"]
             if rows:
-                return {"list": self._diag(None)[:1] + rows}
-            return {"list": self._diag(None) + [self._row("[诊断] 接口返回 0 条", "换一页试试")]}
+                return {"list": rows}
+            return {"list": [self._row("这一页没有内容，换个分类试试", "空")]}
         except Exception as e:
             return {"list": self._diag(e)}
 
     def categoryContent(self, tid, pg, filter=False, extend=""):
         pg = max(1, int(pg or 1))
         try:
-            out = self._listing(self._posts_url(tid, pg), pg)
-            if out["list"]:
-                return out
-            out["list"] = self._diag(None) + [self._row("[诊断] 该分类第 %d 页 0 条" % pg, str(tid))]
-            return out
+            return self._listing(self._posts_url(tid, pg), pg)
         except Exception as e:
             return {"list": self._diag(e), "page": pg, "pagecount": 1,
                     "limit": PAGE_SIZE, "total": 0}
