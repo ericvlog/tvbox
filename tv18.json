@@ -5,28 +5,13 @@
   "warningText": "禁止任何商业用途，仅限个人学习爬虫原理使用。",
   "sites": [
     {
-      "key": "pyprobe-raw",
-      "name": "PY探测(raw)",
-      "type": 3,
-      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/tools/pyprobe.py",
-      "searchable": 0,
-      "quickSearch": 0
-    },
-    {
-      "key": "pyprobe-proxy",
-      "name": "PY探测(gh-proxy)",
-      "type": 3,
-      "api": "https://gh-proxy.org/https://raw.githubusercontent.com/ericvlog/tvbox/main/tools/pyprobe.py",
-      "searchable": 0,
-      "quickSearch": 0
-    },
-    {
       "key": "spankbang-lan",
       "name": "SpankBang[网关]",
       "type": 1,
       "api": "http://10.126.39.223:8080/api.php/provide/vod/",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "style": "grid"
     },
     {
       "key": "sexkbj-lan",
@@ -34,15 +19,17 @@
       "type": 1,
       "api": "http://10.126.39.223:8081/api.php/provide/vod/",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "style": "grid"
     },
     {
       "key": "sexkbj-py",
-      "name": "SexKBJ[韩][py]",
+      "name": "SexKBJ[韩]",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/ericvlog/tvbox@698982f/tools/sexkbj.py",
+      "api": "https://cdn.jsdelivr.net/gh/ericvlog/tvbox@c65157e/tools/sexkbj.py",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "style": "grid"
     },
     {
       "key": "资源管理.py",
