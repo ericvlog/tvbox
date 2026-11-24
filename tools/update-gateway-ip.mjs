@@ -95,9 +95,12 @@ function rewrite(t, ip) {
     if (raw[0] === 0xef) throw new Error(`${file} 带 BOM，拒绝处理`);
     const text = raw.toString('utf8');
     const obj = JSON.parse(text);
-    if (JSON.stringify(obj, null, 2) !== text) {
+    // 允许文件末尾多/少一个换行：只校验主体是 2 空格缩进
+    const body = text.replace(/\n+$/, '');
+    if (JSON.stringify(obj, null, 2) !== body) {
       throw new Error(`${file} 不是 2 空格缩进的规范 JSON，拒绝重写（会放大 diff）`);
     }
+    const trailing = text.endsWith('\n') ? '\n' : '';
     const site = (obj.sites || []).find((s) => s && s.key === t.key);
     if (!site) {
       console.warn(`[!] ${file} 里没有 ${t.key}，跳过`);
@@ -109,7 +112,7 @@ function rewrite(t, ip) {
     }
     console.log(`[~] ${t.key} ${file}: ${site.api}  ->  ${api}`);
     site.api = api;
-    fs.writeFileSync(p, JSON.stringify(obj, null, 2), 'utf8');
+    fs.writeFileSync(p, JSON.stringify(obj, null, 2) + trailing, 'utf8');
     changed.push(file);
   }
   return { api, changed };
