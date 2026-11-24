@@ -8,7 +8,7 @@
       "key": "spankbang-lan",
       "name": "SpankBang[网关]",
       "type": 1,
-      "api": "http://10.126.39.223:8080/api.php/provide/vod/",
+      "api": "http://10.20.116.223:8080/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "style": "grid"
@@ -17,7 +17,7 @@
       "key": "sexkbj-lan",
       "name": "SexKBJ[网关]",
       "type": 1,
-      "api": "http://10.126.39.223:8081/api.php/provide/vod/",
+      "api": "http://10.20.116.223:8081/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "style": "grid"
