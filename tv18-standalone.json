@@ -5,6 +5,22 @@
   "warningText": "禁止任何商业用途，仅限个人学习爬虫原理使用。",
   "sites": [
     {
+      "key": "pyprobe-raw",
+      "name": "PY探测(raw)",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/tools/pyprobe.py",
+      "searchable": 0,
+      "quickSearch": 0
+    },
+    {
+      "key": "pyprobe-proxy",
+      "name": "PY探测(gh-proxy)",
+      "type": 3,
+      "api": "https://gh-proxy.org/https://raw.githubusercontent.com/ericvlog/tvbox/main/tools/pyprobe.py",
+      "searchable": 0,
+      "quickSearch": 0
+    },
+    {
       "key": "spankbang-lan",
       "name": "SpankBang[网关]",
       "type": 1,
@@ -22,9 +38,9 @@
     },
     {
       "key": "sexkbj-py",
-      "name": "SexKBJ[韩]",
+      "name": "SexKBJ[韩][py]",
       "type": 3,
-      "api": "https://cdn.jsdelivr.net/gh/ericvlog/tvbox@81f0478/tools/sexkbj.py",
+      "api": "https://cdn.jsdelivr.net/gh/ericvlog/tvbox@698982f/tools/sexkbj.py",
       "searchable": 1,
       "quickSearch": 1
     },
