@@ -29,836 +29,4214 @@
       "quickSearch": 1
     },
     {
-      "key": "u26-17hl",
-      "name": "17hl[2026]",
+      "key": "资源管理.py",
+      "name": "资源管理[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "影视仓库.py",
+      "name": "影视仓库[py]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/17hl.py",
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%9C%AC%E5%9C%B0%E5%BD%B1%E4%BB%93-v3.1.py",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "lives",
+      "name": "直播平台综合[py][直播]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/lives.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "stripchat直播通用弹幕-py",
+      "name": "💯stripchat高清通用弹幕[直播][py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/stripchat%E7%9B%B4%E6%92%AD%E9%80%9A%E7%94%A8%E5%BC%B9%E5%B9%95.py",
+      "searchable": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "Chaturbate.py/嗷",
+      "name": "Chaturbate[直播][py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/Chaturbate.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "瑟瑟直播.py/嗷",
+      "name": "瑟瑟[直播][py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E7%91%9F%E7%91%9F%E7%9B%B4%E6%92%AD%20%281%29.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "boyfriend",
+      "name": "stripchat[直播]②[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/boyfriend.show.py",
+      "searchable": 0,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "色播",
+      "name": "聚合-LIVE₃[直播][py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E8%89%B2%E6%92%AD%E8%81%9A%E5%90%88.py",
+      "searchable": 0,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "熊猫直播[播].py",
+      "name": "熊猫直播1[直播][py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E7%86%8A%E7%8C%AB%E7%9B%B4%E6%92%AD%5B%E6%92%AD%5D.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "theavporn.py-py",
+      "name": "theavporn[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/theavporn.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "肉视频1-py",
+      "name": "肉视频[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E8%82%89%E8%A7%86%E9%A2%91.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "owoav-py",
+      "name": "OWOAV[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/owoav.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "qinav-py",
+      "name": "qinav[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/qinav.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "杏吧APP-py",
+      "name": "杏吧APP[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%9D%8F%E5%90%A7app.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "视色-py",
+      "name": "视色[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E8%A7%86%E8%89%B2.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "youav-py",
+      "name": "youav[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/youav.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "海角情-py",
+      "name": "海角情[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%B5%B7%E8%A7%92%E6%83%85.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "海角乱伦-py",
+      "name": "海角乱伦[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%B5%B7%E8%A7%92%E4%B9%B1%E4%BC%A6.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "玩物社区-py",
+      "name": "玩物社区[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E7%8E%A9%E7%89%A9%E7%A4%BE%E5%8C%BA.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "爱妻艺-py",
+      "name": "爱妻艺[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E7%88%B1%E5%A6%BB%E8%89%BA.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "老王视频-py",
+      "name": "老王视频[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E8%80%81%E7%8E%8B%E8%A7%86%E9%A2%91.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "色虎av-py",
+      "name": "色虎AV[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E8%89%B2%E8%99%8Eav.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "杏吧视频-py",
+      "name": "杏吧视频[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%9D%8F%E5%90%A7%E8%A7%86%E9%A2%91.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "萝莉岛-py",
+      "name": "萝莉岛[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E8%90%9D%E8%8E%89%E5%B2%9B.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "hubff-py",
+      "name": "hubff[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/hubff.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "missav-app.py-py",
+      "name": "missav-app[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/missav-app.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "ggjav-py",
+      "name": "ggjav[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/ggjav.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "ppp1-py",
+      "name": "ppp[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/ppp.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "seajav.py-py",
+      "name": "seajav[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/seajav.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "推特涩涩.py-py",
+      "name": "推特涩涩[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%8E%A8%E7%89%B9%E6%B6%A9%E6%B6%A9.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "bad-py",
+      "name": "BAD[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/bad.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "小丑撸1-py",
+      "name": "小丑撸[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E5%B0%8F%E4%B8%91%E6%92%B8.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "sae8视频-py",
+      "name": "sae8视频[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/sae8%E8%A7%86%E9%A2%91.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "麻豆社-py",
+      "name": "麻豆社[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E9%BA%BB%E8%B1%86%E7%A4%BE.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "射我里面-py",
+      "name": "射我里面[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E5%B0%84%E6%88%91%E9%87%8C%E9%9D%A2.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "九色-py",
+      "name": "九色[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/jiuse.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "Taiav.py",
+      "name": "Taiav[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/taiav.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "情色小说论坛.py",
+      "name": "情色小说论坛[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%83%85%E8%89%B2%E5%B0%8F%E8%AF%B4%E8%AE%BA%E5%9D%9B.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "日日撸.py",
+      "name": "日日撸[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%97%A5%E6%97%A5%E6%92%B8.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "xgroovy.py",
+      "name": "xgroovy[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/xgroovy.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "0712youtube.py",
+      "name": "油管YouTuBe[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/0712youtube.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "黄豆短剧.py",
+      "name": "黄豆短剧[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E9%BB%84%E8%B1%86%E7%9F%AD%E5%89%A7.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "硬硬av",
+      "name": "硬硬AV[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/ininAV.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "helloavgirls.py",
+      "name": "helloavgirls[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/helloavgirls.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "91蝌蚪窝.py",
+      "name": "91蝌蚪窝[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/91%E8%9D%8C%E8%9A%AA%E7%AA%9D.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "py_Pandalive.py",
+      "name": "Pandalive[直播][py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/Pandalive.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "x.py",
+      "name": "X[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/X%E2%80%93Musk.py",
+      "searchable": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "美人图.py",
+      "name": "美人图[图][py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E7%BE%8E%E4%BA%BA%E5%9B%BE.py",
+      "searchable": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "秀色女神.py",
+      "name": "秀色女神[图][py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E7%A7%80%E8%89%B2%E5%A5%B3%E7%A5%9E.py",
+      "searchable": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "ai顶级涩[图].py",
+      "name": "ai顶级涩[图][py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/ai%E9%A1%B6%E7%BA%A7%E6%B6%A9%5B%E5%9B%BE%5D.py",
+      "searchable": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "激情007",
+      "name": "🔍激情007[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%BF%80%E6%83%85007.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "Pornhub/嗷",
+      "name": "🔍Pornhub[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/Pornhub.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "drpy/pornhub.js",
+      "name": "🔍Pornhub.js",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/js/lib/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/js/pornhub.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "Xhamster/嗷",
+      "name": "🔍Xhamster[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/Xhamster.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "Xvideos/嗷",
+      "name": "🔍Xvideos[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/Xvideos.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "jable.py",
+      "name": "jable[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/jable.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "夜色.py",
+      "name": "夜色[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E5%A4%9C%E8%89%B2.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "小黄书.py",
+      "name": "小黄书[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E5%B0%8F%E9%BB%84%E4%B9%A6.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "测试 (1).py",
+      "name": "测试[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%B5%8B%E8%AF%95.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "jabie (3).py",
+      "name": "jabie (3)[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/jabie%20%283%29.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "啪啪视频.py",
+      "name": "🔍啪啪视频[py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E5%95%AA%E5%95%AA%E8%A7%86%E9%A2%91.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "JAV目录.py",
+      "name": "🔍JAV目录[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/JAV%E7%9B%AE%E5%BD%95.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "1AV研究所.py",
+      "name": "[CF]AV研究所[py]❌",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/1AV%E7%A0%94%E7%A9%B6%E6%89%80.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "hohoj/py",
+      "name": "🔍HOHOJ[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/hohoj.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "Hanime.py",
+      "name": "🔍Hanime[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/Hanime.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "黑料不打烊/py",
+      "name": "🔍黑料不打烊[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/hl365.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "今日看料.py/嗷",
+      "name": "🔍今日看料[py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E4%BB%8A%E6%97%A5%E7%9C%8B%E6%96%99.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "禁片天堂.py/嗷",
+      "name": "禁片天堂[py][搜索有问题]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E7%A6%81%E7%89%87%E5%A4%A9%E5%A0%82.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "91porn/py",
+      "name": "91porn[py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/91porn.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.77
+      }
+    },
+    {
+      "key": "whostv.py",
+      "name": "❌whostv[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/whostv.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "神秘影院",
+      "name": "🔍神秘影院[py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E7%A5%9E%E7%A7%98%E5%BD%B1%E9%99%A2.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "eporner/嗷",
+      "name": "🔍Eporner[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/eporner.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "🔞 Beeg.py",
+      "name": "🔞Beeg[py][无搜]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%F0%9F%94%9E%20Beeg.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "missav.py",
+      "name": "missav[py][CF][已关必搜索]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/missav.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "酷爱.py",
+      "name": "酷爱[py]❌ok不能播[已关必搜索]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E9%85%B7%E7%88%B1.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "x视频.py",
+      "name": "x视频[py][无搜]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/truvaze.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "撸一天",
+      "name": "🔍撸一天[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%92%B8%E4%B8%80%E5%A4%A9.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "撸一天版本2",
+      "name": "🔍撸一天版本二[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%99%BA%E8%83%BD%E6%92%B8%E5%A4%A7%E6%B9%BF.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "麻豆/沐",
+      "name": "🔍麻豆(js)",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/madou.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
+      "key": "drpy/小处女.js",
+      "name": "🔍小处女.js",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/js/lib/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/js/%E5%B0%8F%E5%A4%84%E5%A5%B3.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "七哥U视频.py",
+      "name": "🔍优视频[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E4%B8%83%E5%93%A5U%E8%A7%86%E9%A2%91.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "ext": {
+        "proxy": {},
+        "plp": ""
+      }
+    },
+    {
+      "key": "韩国情色.py",
+      "name": "🔍韩国情色[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E9%9F%A9%E5%9B%BD%E6%83%85%E8%89%B2.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "ThePorn.py/嗷",
+      "name": "ThePorn[py][CF]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/ThePorn.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "小红薯APP.py/嗷",
+      "name": "小红薯APP[py][无搜]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E5%B0%8F%E7%BA%A2%E8%96%AFAPP.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "香蕉.py/嗷",
+      "name": "🔍香蕉[py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E9%A6%99%E8%95%89.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "91RB.ppy/嗷",
+      "name": "🔍91RB[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/91RB.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "好色TV.py/嗷",
+      "name": "🔍好色TV[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E5%A5%BD%E8%89%B2TV.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "七区.py/嗷",
+      "name": "七区[py][无搜]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E4%B8%83%E5%8C%BA.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "葡萄5区.py/嗷",
+      "name": "🔍葡萄5区[py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E8%91%A1%E8%90%845%E5%8C%BA.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "onlyfans gv.py/嗷",
+      "name": "🔍onlyfans gv[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/onlyfans%20gv.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "py_stgay.py/嗷",
+      "name": "🔍py_stgay[py]❌",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/py_stgay.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "motv修复版.py",
+      "name": "🔍motv[py]❌",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/motv.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      },
+      "changeable": 1
+    },
+    {
+      "key": "5x社区py",
+      "name": "🔍5x社区[py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/5x%E7%A4%BE%E5%8C%BA.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "小处女py",
+      "name": "🔍小处女[py]❌没有播放地址",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E5%B0%8F%E5%A4%84%E5%A5%B3.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "黑料.p/嗷",
+      "name": "🔍黑料[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E9%BB%91%E6%96%99.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "黑料网heiliao.py/",
+      "name": "🖤黑料网[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/heiliao.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "51吃瓜动态版.py/嗷",
+      "name": "🔍51吃瓜动态版[py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/51%E5%90%B8%E7%93%9C%E5%8A%A8%E6%80%81%E7%89%88.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "51爆料",
+      "name": "🔍51爆料[py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/51%E7%88%86%E6%96%99.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "每日大乱斗",
+      "name": "🔍每日大乱斗[py][免翻]❌",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%AF%8F%E6%97%A5%E5%A4%A7%E4%B9%B1%E6%96%97.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "每日大赛",
+      "name": "🔍每日大赛[py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%AF%8F%E6%97%A5%E5%A4%A7%E8%B5%9B.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "818黑料网",
+      "name": "🔍818黑料网[py]❌",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/818%E9%BB%91%E6%96%99%E7%BD%91.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "51视频",
+      "name": "🔍51视频[py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/51%E8%A7%86%E9%A2%91.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "51大赛",
+      "name": "🔍51大赛[py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/51%E5%A4%A7%E8%B5%9B.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "911爆料网_2",
+      "name": "🔍911爆料网2[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/911%E5%A4%87%E7%94%A81.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "51暗网",
+      "name": "🔍51暗网[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/51%E6%9A%97%E7%BD%91.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "麻豆瓜网",
+      "name": "🔍麻豆瓜网[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E9%BA%BB%E8%B1%86%E7%93%9C%E7%BD%91.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "51黑料网_通用模板",
+      "name": "🔍51黑料网[py]❌",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/51%E9%BB%91%E6%96%99%E7%BD%91.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "甜蜜桃源.py",
+      "name": "🔍甜蜜桃源[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E7%94%9C%E8%9C%9C%E6%A1%83%E6%BA%90.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "怦然心动.py",
+      "name": "🔍怦然心动[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%80%A6%E7%84%B6%E5%BF%83%E5%8A%A8.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "91网爆黑料",
+      "name": "🔍91网爆黑料[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/91%E7%BD%91%E7%88%86%E9%BB%91%E6%96%99.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "91吃瓜中心",
+      "name": "🔍91吃瓜中心[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/91%E5%90%83%E7%93%9C%E4%B8%AD%E5%BF%83.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "91吃瓜",
+      "name": "🔍91吃瓜[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/91%E5%90%83%E7%93%9C.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "51吸瓜",
+      "name": "🔍51吸瓜[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/51%E5%90%B8%E7%93%9C.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "51吃瓜(吃瓜通用模版).py",
+      "name": "🔍51吃瓜(吃瓜通用模版)[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/51%E5%90%83%E7%93%9C%28%E5%90%83%E7%93%9C%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88%29.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "吃瓜网_通用模板",
+      "name": "🔍吃瓜网[py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E5%90%83%E7%93%9C%E7%BD%91.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "黑料弹幕版",
+      "name": "黑料弹幕版[py][无图][无搜]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E9%BB%91%E6%96%99%E5%BC%B9%E5%B9%95%E7%89%88.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "一个区",
+      "name": "🔍一个区[py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E4%B8%80%E4%B8%AA%E5%8C%BA.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "九个区",
+      "name": "九个区[py][无搜]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E4%B9%9D%E4%B8%AA%E5%8C%BA.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "四虎视频",
+      "name": "🔍四虎视频[py]❌",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E5%9B%9B%E8%99%8E%E8%A7%86%E9%A2%91.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "随机小姐姐",
+      "name": "随机小姐姐[秀][py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E9%9A%8F%E6%9C%BA%E5%B0%8F%E5%A7%90%E5%A7%90.py",
+      "searchable": 0,
+      "quickSearch": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "uaa有声",
+      "name": "🔍uaa有声[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/uaa%E6%9C%89%E5%A3%B0.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "泥视频py",
+      "name": "[正剧]泥视频[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%B3%A5%E8%A7%86%E9%A2%91.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "玩具社区.py",
+      "name": "🔍玩具社区[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E7%8E%A9%E5%85%B7%E7%A4%BE%E5%8C%BA.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "changeable": 1
+    },
+    {
+      "key": "JAV36 (1)",
+      "name": "🔍JAV36[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/JAV36%20%281%29.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 1
+    },
+    {
+      "key": "xiang512 (1)",
+      "name": "🔍xiang512[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/xiang512%20%281%29.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 1
+    },
+    {
+      "key": "PigAV (1)",
+      "name": "🔍PigAV朱古力[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/PigAV%20%281%29.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 1
+    },
+    {
+      "key": "妲己.py",
+      "name": "妲己[免翻][py][不支持VPN]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E5%A6%B2%E5%B7%B1.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "VHUB.py",
+      "name": "🔍VHUB[py][免翻]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/VHUB.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "TOPTV.py",
+      "name": "🔍TOPTV[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/TOPTV.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "熊猫视频.py",
+      "name": "🔍熊猫视频[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E7%86%8A%E7%8C%AB%E8%A7%86%E9%A2%91.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "麻豆免费.py",
+      "name": "🔲麻豆免费在线播放[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E9%BA%BB%E8%B1%86%E5%85%8D%E8%B4%B9.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "琉璃神社2.py",
+      "name": "🔍琉璃神社2[py]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E7%90%89%E7%92%83%E7%A5%9E%E7%A4%BE2.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_xbpq_s直播",
+      "name": "StripChat[直播][xbpq][免翻]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/StripChat%E7%9B%B4%E6%92%ADxbpq.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_s直播带票",
+      "name": "🎫StripChat[直播][免翻]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/stripchat%E7%9B%B4%E6%92%AD%E5%B8%A6%E7%A5%A8.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_小黄书xbpq",
+      "name": "🔍小黄书[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E5%B0%8F%E9%BB%84%E4%B9%A6xbpq.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_yese",
+      "name": "夜色[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/yese.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_sae8视频",
+      "name": "🔍sae8视频[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/sae8%E8%A7%86%E9%A2%91.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_黑猫AV.json",
+      "name": "🔍黑猫AV[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E9%BB%91%E7%8C%ABAV.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_jkf",
+      "name": "捷克论坛[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/jkf.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_91情报局",
+      "name": "🔍91情报局[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/91%E6%83%85%E6%8A%A5%E5%B1%80.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_18porn",
+      "name": "[无图待修]18porn[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/18porn.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_啪啪啦",
+      "name": "🔍啪啪啦[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E5%95%AA%E5%95%AA%E5%95%A6.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_91porn",
+      "name": "🔍91porn[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/91porn.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_糖心vlog",
+      "name": "糖心vlog[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E7%B3%96%E5%BF%83vlog.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_蜜桃视频",
+      "name": "🔍蜜桃视频[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E8%9C%9C%E6%A1%83%E8%A7%86%E9%A2%91.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_91视频",
+      "name": "❌没有写好，91视频[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/91%E8%A7%86%E9%A2%91.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_17吃瓜",
+      "name": "🚫17吃瓜[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/17%E5%90%83%E7%93%9Cxbpq.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_91自拍成人影院.json",
+      "name": "[无搜]91自拍成人影院[免翻]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/91%E8%87%AA%E6%8B%8D%E6%88%90%E4%BA%BA%E5%BD%B1%E9%99%A2.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_HOTXXX中文二级.json",
+      "name": "🔍HOTXXX中文二级[免翻]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/HOTXXX%E4%B8%AD%E6%96%87%E4%BA%8C%E7%BA%A7.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_【公众号_半糖碎光】XSMJAV.json",
+      "name": "🔍【公众号_半糖碎光】XSMJAV.json[免翻]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E3%80%90%E5%85%AC%E4%BC%97%E5%8F%B7_%E5%8D%8A%E7%B3%96%E7%A2%8E%E5%85%89%E3%80%91XSMJAV.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_kanav.json",
+      "name": "🔍kanav[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/kanav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_pornhub11",
+      "name": "🔍💯pornhub[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/pornhub-xbpq.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_xvideos11",
+      "name": "🔍💯xvideos[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/xvideos-xbpq.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_tktube12",
+      "name": "🔍💯Tktube[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/tktube-xbpq.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_麻豆av",
+      "name": "🔍麻豆AV[xbpq][无图]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E9%BA%BB%E8%B1%86av.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_18mh",
+      "name": "❌禁漫天堂[xbpq][无图]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/18mh.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_禁片天堂jptt.tv",
+      "name": "🔍💯禁片天堂[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E7%A6%81%E7%89%87%E5%A4%A9%E5%A0%82.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_91黑料网.json",
+      "name": "🔍91黑料网[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/91%E9%BB%91%E6%96%99%E7%BD%91.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_x1hub",
+      "name": "🔍X1HUB[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/x1hub.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_麻豆社",
+      "name": "🔍麻豆社[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E9%BA%BB%E8%B1%86%E7%A4%BExbpq.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_小鸭看看",
+      "name": "小鸭看看[xbpq](跳谷歌搜索)",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E5%B0%8F%E9%B8%AD%E7%9C%8B%E7%9C%8B.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_hubff",
+      "name": "🔍Hubff[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/hubff.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_pornlulu1",
+      "name": "🔍pornlulu[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/pornlulu.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_久久网",
+      "name": "🔍久久网[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/jiujiu.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_av01.org",
+      "name": "🔍第一女优网[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E7%AC%AC%E4%B8%80%E5%A5%B3%E4%BC%98%E7%BD%91.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_第一色情网",
+      "name": "[安全验证]第一色情网[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E7%AC%AC%E4%B8%80%E8%89%B2%E6%83%85%E7%BD%91.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_avgood",
+      "name": "等待更新avgood[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/avgood.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_123",
+      "name": "🔍💯123[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/123TV.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_mylust",
+      "name": "mylust.json[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/mylust.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_色多多(扑街仔).json",
+      "name": "🔍色多多(扑街仔).json[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E8%89%B2%E5%A4%9A%E5%A4%9A%28%E6%89%91%E8%A1%97%E4%BB%94%29.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_萝莉酒吧.json",
+      "name": "🔍萝莉酒吧.json[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E8%90%9D%E8%8E%89%E9%85%92%E5%90%A7.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_蝴蝶情.json",
+      "name": "🔍蝴蝶情.json[xbpq][免翻]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E8%9D%B4%E8%9D%B6%E6%83%85.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_佛跳墙(二级).json",
+      "name": "🔍佛跳墙(二级).json[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E4%BD%9B%E8%B7%B3%E5%A2%99%28%E4%BA%8C%E7%BA%A7%29.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_s朱古力",
+      "name": "朱古力[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E6%9C%B1%E5%8F%A4%E5%8A%9Bxbpq.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_🔞才是源动力_极乐禁区(修复二级翻页bug).json",
+      "name": "🔍🔞极乐禁区[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%F0%9F%94%9E%E6%89%8D%E6%98%AF%E6%BA%90%E5%8A%A8%E5%8A%9B_%E6%9E%81%E4%B9%90%E7%A6%81%E5%8C%BA%28%E4%BF%AE%E5%A4%8D%E4%BA%8C%E7%BA%A7%E7%BF%BB%E9%A1%B5bug%29.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "csp_xbpq_🔞推特黑料",
+      "name": "🔞推特黑料[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/x%E6%8E%A8%E7%89%B9%E9%BB%91%E6%96%99.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.65
+      }
+    },
+    {
+      "key": "油管jar",
+      "name": "油管jar",
+      "type": 3,
+      "api": "csp_ProxySpider",
+      "searchable": 1,
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      },
+      "jar": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/jar/pro0516.jar",
+      "ext": "YoutubeSpider",
+      "filterable": 0
+    },
+    {
+      "key": "csp_xbpq_91porna",
+      "name": "[待修复]🔞91porna[xbpq]",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/91porna.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
+    },
+    {
+      "key": "csp_XYQHiker_stripchat直播",
+      "name": "❌🔞StripChat[直播][XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/stripchat%E7%9B%B4%E6%92%AD.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_bongacams直播",
+      "name": "🔞bongacams[直播][XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/bongacams%E7%9B%B4%E6%92%AD.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "drpy_js_ss直播",
+      "name": "直播大全[直播][js]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/js/lib/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/js/ss%E7%9B%B4%E6%92%AD.js",
+      "searchable": 0,
+      "quickSearch": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
+    },
+    {
+      "key": "csp_XYQHiker_直播大全",
+      "name": "🔞直播大全[直播][XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E7%9B%B4%E6%92%AD%E5%A4%A7%E5%85%A8.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_X(Twitter)黑料",
+      "name": "🔞X(Twitter)推特黑料[XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/X%28Twitter%29%E9%BB%91%E6%96%99.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_情色小说论坛",
+      "name": "🔍🔞情色小说论坛[XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E6%83%85%E8%89%B2%E5%B0%8F%E8%AF%B4%E8%AE%BA%E5%9D%9B.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_91porna",
+      "name": "🔍🔞91Porna[XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/91porna.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_pornhub",
+      "name": "🔍🔞Pornhub[XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/pornhub.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_xvideos",
+      "name": "🔍🔞Xvideos[XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/xvideos.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_xnxx",
+      "name": "搜索有问题🔞XNXX[XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/xnxx.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_xHamster",
+      "name": "🔍🔞xHamster[XYQHiker][免翻]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/xHamster.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_spankbang",
+      "name": "🔞[待修复]spankbang[XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/spankbang.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_ppp",
+      "name": "🔍🔞PPP[XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/ppp.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-18av",
-      "name": "18av[2026]",
+      "key": "csp_XYQHiker_tktube",
+      "name": "🔞[待修复]Tktube[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/18av.py",
+      "api": "csp_XYQHiker",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/tktube.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_xgroovy",
+      "name": "🔍🔞xgroovy[XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/xgroovy.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_jable",
+      "name": "🔍🔞Jable[XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/jable.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_禁片天堂",
+      "name": "🔍🔞禁片天堂[XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E7%A6%81%E7%89%87%E5%A4%A9%E5%A0%82.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_强国av",
+      "name": "[待修复]🔞强国AV[XYQHiker]❌网站无数据",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E5%BC%BA%E5%9B%BDav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_airav",
+      "name": "[带修复]🔞AirAV[XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/airav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_玩偶姐姐",
+      "name": "[带修复]🔞玩偶姐姐带修复[XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E7%8E%A9%E5%81%B6%E5%A7%90%E5%A7%90.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-202610fullhd",
-      "name": "202610fullhd[2026]",
+      "key": "csp_XYQHiker_ggjav",
+      "name": "🔍🔞GGJAV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/202610fullhd.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/ggjav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-202610xyqxbpq",
-      "name": "202610xyqxbpq[2026]",
+      "key": "csp_XYQHiker_日日撸",
+      "name": "🔍🔞日日撸[XYQHiker][免翻]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/202610xyqxbpq.jar",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E6%97%A5%E6%97%A5%E6%92%B8.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-2048dj",
-      "name": "2048dj[2026]",
+      "key": "csp_XYQHiker_cospuri",
+      "name": "[试看]🔞COSpuri[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/2048dj.py",
+      "api": "csp_XYQHiker",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/cospuri.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "csp_XYQHiker_鉴黄师",
+      "name": "🔞鉴黄师[XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E9%89%B4%E9%BB%84%E5%B8%88.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-2048成人短剧-18",
-      "name": "2048成人短剧[18][2026]",
+      "key": "csp_XYQHiker_正妹AV",
+      "name": "🔍🔞正妹AV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/2048%E6%88%90%E4%BA%BA%E7%9F%AD%E5%89%A7%5B18%5D.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E6%AD%A3%E5%A6%B9av.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-51aw",
-      "name": "51aw[2026]",
+      "key": "csp_XYQHiker_porn87",
+      "name": "🔍🔞Porn87[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/51aw.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/porn87.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-51bl",
-      "name": "51bl[2026]",
+      "key": "csp_XYQHiker_亚洲色吧",
+      "name": "🔞亚洲色吧[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/51bl.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E4%BA%9A%E6%B4%B2%E8%89%B2%E5%90%A7.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-51bl1",
-      "name": "51bl1[2026]",
+      "key": "csp_XYQHiker_owoAV",
+      "name": "🔞OWOAV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/51bl1.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/owoav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-51cg-w",
-      "name": "51cg-w[2026]",
+      "key": "csp_XYQHiker_丽丽AV",
+      "name": "🔞丽丽AV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/51cg-w.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E4%B8%BD%E4%B8%BDav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-51cg1",
-      "name": "51cg1[2026]",
+      "key": "csp_XYQHiker_朱古力",
+      "name": "🔞朱古力[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/51cg1.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E6%9C%B1%E5%8F%A4%E5%8A%9B2.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-51cg2",
-      "name": "51cg2[2026]",
+      "key": "csp_XYQHiker_OVOAV",
+      "name": "🔞OVOAV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/51cg2.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/ovojav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-51cg-v10",
-      "name": "51cg_v10[2026]",
+      "key": "csp_XYQHiker_好色TV",
+      "name": "🔍🔞好色TV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/51cg_v10.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E5%A5%BD%E8%89%B2tv.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-51chigua1",
-      "name": "51chigua1[2026]",
+      "key": "csp_XYQHiker_missav.app",
+      "name": "🔍🔞MissAV.app[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/51chigua1.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/missav.app.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-51ds1",
-      "name": "51ds1[2026]",
+      "key": "csp_XYQHiker_missav",
+      "name": "🔍🔞MissAV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/51ds1.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/missav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-51test",
-      "name": "51test[2026]",
+      "key": "csp_XYQHiker_njavtv.com",
+      "name": "🔍🔞Njavtv.com[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/51test.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/njavtv.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-51短剧",
-      "name": "51短剧[2026]",
+      "key": "csp_XYQHiker_njav.com",
+      "name": "🔞Njav.com[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/51%E7%9F%AD%E5%89%A7.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/njav.com.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-57cg",
-      "name": "57cg[2026]",
+      "key": "csp_XYQHiker_soporn",
+      "name": "🔞Soporn[XYQHiker]❌",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/57cg.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/soporn.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-57chigua",
-      "name": "57chigua[2026]",
+      "key": "csp_XYQHiker_小丑撸",
+      "name": "🔍🔞小丑🤡撸[XYQHiker][免翻]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/57chigua.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E5%B0%8F%E4%B8%91%E6%92%B8.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-591av",
-      "name": "591av[2026]",
+      "key": "csp_XYQHiker_小嫂子av",
+      "name": "🔞小嫂子AV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/591av.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E5%B0%8F%E5%AB%82%E5%AD%90av.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-818hl",
-      "name": "818hl[2026]",
+      "key": "csp_XYQHiker_小黄书x",
+      "name": "🔞小黄书🔗[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/818hl.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E5%B0%8F%E9%BB%84%E4%B9%A6.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-91av",
-      "name": "91av[2026]",
+      "key": "csp_XYQHiker_爱上av",
+      "name": "🔞爱上av[XYQHiker]❌",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/91av.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E7%88%B1%E4%B8%8Aav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-91cg",
-      "name": "91cg[2026]",
+      "key": "csp_XYQHiker_色最色",
+      "name": "🔞色最色[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/91cg.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E8%89%B2%E6%9C%80%E8%89%B2.json"
     },
     {
-      "key": "u26-91cg-v9",
-      "name": "91cg_v9[2026]",
+      "key": "csp_XYQHiker_ptt.sex",
+      "name": "🔍🔞PTT[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/91cg_v9.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/ptt.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-91ds",
-      "name": "91ds[2026]",
+      "key": "csp_XYQHiker_红桃视频",
+      "name": "🔞红桃视频[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/91ds.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E7%BA%A2%E6%A1%83%E8%A7%86%E9%A2%91.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-91hl",
-      "name": "91hl[2026]",
+      "key": "csp_XYQHiker_热骚",
+      "name": "🔞热骚[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/91hl.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E7%83%AD%E9%AA%9A.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-91jav",
-      "name": "91jav[2026]",
+      "key": "csp_XYQHiker_ixxxj",
+      "name": "🔍🔞IXXXJ[XYQHiker][免翻]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/91jav.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/ixxxj.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-93he1",
-      "name": "93he1[2026]",
+      "key": "csp_XYQHiker_hanimi1",
+      "name": "🔞Hanime1[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/93he1.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/hanime1.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-9he1",
-      "name": "9he1[2026]",
+      "key": "csp_XYQHiker_jiedm",
+      "name": "🔞jiedmAV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/9he1.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/jiedm.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-cam4",
-      "name": "Cam4[2026]",
+      "key": "csp_XYQHiker_xtoons",
+      "name": "🔞Xtoons动漫[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/Cam4.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/xtoons.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-hanime1-终极自愈-全功能版",
-      "name": "Hanime1(终极自愈+全功能版)[2026]",
+      "key": "csp_XYQHiker_动漫PRO",
+      "name": "🔍🔞动漫PRO[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/Hanime1%28%E7%BB%88%E6%9E%81%E8%87%AA%E6%84%88%2B%E5%85%A8%E5%8A%9F%E8%83%BD%E7%89%88%29.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E5%8A%A8%E6%BC%ABpro.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-pornhub163",
-      "name": "Pornhub163[2026]",
+      "key": "csp_XYQHiker_ACG漫画网",
+      "name": "🔞ACG漫画网[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/Pornhub163.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/acg%E6%BC%AB%E7%94%BB%E7%BD%91.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
     },
     {
-      "key": "u26-xv123",
-      "name": "XV123[2026]",
+      "key": "csp_XYQHiker_吃瓜网520",
+      "name": "[待修复]🔞吃瓜网[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/XV123.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E5%90%83%E7%93%9C%E7%BD%91.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-yesporn-动态发布自愈版",
-      "name": "YesPorn·动态发布自愈版[2026]",
+      "key": "csp_XYQHiker_黑料网",
+      "name": "🔞黑料网[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/YesPorn%C2%B7%E5%8A%A8%E6%80%81%E5%8F%91%E5%B8%83%E8%87%AA%E6%84%88%E7%89%88.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E9%BB%91%E6%96%99%E7%BD%91.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-yesporn-动态发布自愈版-2",
-      "name": "YesPorn·动态发布自愈版_2[2026]",
+      "key": "csp_XYQHiker_黑料百科",
+      "name": "🔞黑料百科[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/YesPorn%C2%B7%E5%8A%A8%E6%80%81%E5%8F%91%E5%B8%83%E8%87%AA%E6%84%88%E7%89%88_2.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E9%BB%91%E6%96%99%E7%99%BE%E7%A7%91.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-zaka影院-动态发布自愈版",
-      "name": "Zaka影院·动态发布自愈版[2026]",
+      "key": "csp_XYQHiker_91吃瓜网",
+      "name": "🔍🔞91吃瓜网[XYQHiker][免翻]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/Zaka%E5%BD%B1%E9%99%A2%C2%B7%E5%8A%A8%E6%80%81%E5%8F%91%E5%B8%83%E8%87%AA%E6%84%88%E7%89%88.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/91%E5%90%83%E7%93%9C%E7%BD%91.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-aowu",
-      "name": "aowu[2026]",
+      "key": "csp_XYQHiker_17吃瓜",
+      "name": "🔍🔞17吃瓜[XYQHiker][免翻]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/aowu.jar",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/17%E5%90%83%E7%93%9C.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
+    },
+    {
+      "key": "drpy_js_ebay直播",
+      "name": "ebay直播[js]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/js/lib/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/js/e%E7%9B%B4%E6%92%AD.js",
+      "searchable": 0,
+      "quickSearch": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-av123",
-      "name": "av123[2026]",
+      "key": "drpy_js_SOAV[密]",
+      "name": "🔍SOAV[密][js][免翻]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/av123.py",
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/js/lib/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/js/SOAV%5B%E5%AF%86%5D.js",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-avbebe",
-      "name": "avbebe[2026]",
+      "key": "drpy_js_18av",
+      "name": "🔍18av[js]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/avbebe.py",
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/js/lib/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/js/18av.js",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-clsq",
-      "name": "clsq[2026]",
+      "key": "csp_XYQHiker_krx18",
+      "name": "🔞KRX18[伦理]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/clsq.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/krx18.json"
     },
     {
-      "key": "u26-custom-spider",
-      "name": "custom_spider[2026]",
+      "key": "csp_XYQHiker_lxxlxx",
+      "name": "🔍🔞LxxLxx[XYQHiker][免翻]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/custom_spider.jar",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/lxxlxx.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-custom-spider-zx",
-      "name": "custom_spider_zx[2026]",
+      "key": "csp_XYQHiker_好看视频+",
+      "name": "🔍🔞好看视频+[XYQHiker][免翻]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/custom_spider_zx.jar",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E5%A5%BD%E7%9C%8B%E8%A7%86%E9%A2%91.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
+    },
+    {
+      "key": "csp_XYQHiker_5278",
+      "name": "[无搜]🔞我爱78论坛[XYQHiker]",
+      "type": 3,
+      "api": "csp_XYQHiker",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/5278.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-dyxia",
-      "name": "dyxia[2026]",
+      "key": "csp_XYQHiker_bad",
+      "name": "🔍🔞Bad.news[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/dyxia.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/bad.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-fm",
-      "name": "fm[2026]",
+      "key": "csp_XYQHiker_bad搜索1",
+      "name": "🔞Bad.news搜索AV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/fm.jar",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/bad%E6%90%9C%E7%B4%A21.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-fullhd",
-      "name": "fullhd[2026]",
+      "key": "csp_XYQHiker_bad搜索2",
+      "name": "🔍🔞Bad.news搜索动漫[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/fullhd.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/bad%E6%90%9C%E7%B4%A22.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-fullhd2",
-      "name": "fullhd2[2026]",
+      "key": "csp_XYQHiker_52av论坛",
+      "name": "🔞52av论坛[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/fullhd2.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/52av2.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-fullhd3",
-      "name": "fullhd3[2026]",
+      "key": "csp_XYQHiker_camcam",
+      "name": "🔍🔞CamCam[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/fullhd3.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/camcam.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-fullhd4",
-      "name": "fullhd4[2026]",
+      "key": "csp_XYQHiker_后宫电影院",
+      "name": "🔍🔞后宫电影院[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/fullhd4.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E5%90%8E%E5%AE%AB%E7%94%B5%E5%BD%B1%E9%99%A2.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-hgduanju",
-      "name": "hgduanju[2026]",
+      "key": "csp_XYQHiker_AV兄弟",
+      "name": "🔍🔞AV兄需修复弟💉[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/hgduanju.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/av%E5%85%84%E5%BC%9F.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-hsck-deep",
-      "name": "hsck-Deep[2026]",
+      "key": "csp_XYQHiker_云老婆",
+      "name": "🔞云老婆[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/hsck-Deep.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E4%BA%91%E8%80%81%E5%A9%86.json",
+      "style": {
+        "type": "rect",
+        "ratio": 0.75
+      }
     },
     {
-      "key": "u26-hsck",
-      "name": "hsck[2026]",
+      "key": "csp_XYQHiker_波波",
+      "name": "🔞波波[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/hsck.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/boboporn.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-hsck2",
-      "name": "hsck2[2026]",
+      "key": "csp_XYQHiker_justav",
+      "name": "🔞justav[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/hsck2.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/justav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-jable-失效自愈版",
-      "name": "jable_失效自愈版[2026]",
+      "key": "csp_XYQHiker_jieav",
+      "name": "🔞JieAV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/jable_%E5%A4%B1%E6%95%88%E8%87%AA%E6%84%88%E7%89%88.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/jieav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-lissavcn终极自愈-全功能版",
-      "name": "lissavCN终极自愈+全功能版[2026]",
+      "key": "csp_XYQHiker_亚色影库",
+      "name": "🔍🔞亚色影库[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/lissavCN%E7%BB%88%E6%9E%81%E8%87%AA%E6%84%88%2B%E5%85%A8%E5%8A%9F%E8%83%BD%E7%89%88.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E4%BA%9A%E8%89%B2%E5%BD%B1%E5%BA%93.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-lissavcn",
-      "name": "lissavcn[2026]",
+      "key": "csp_XYQHiker_18jav",
+      "name": "🔞18JAV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/lissavcn.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/18jav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-missav666",
-      "name": "missav666[2026]",
+      "key": "csp_XYQHiker_黄色仓库",
+      "name": "🔍🔞黄色仓库✈️🔗[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/missav666.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E9%BB%84%E8%89%B2%E4%BB%93%E5%BA%93.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-missav免翻全分类版",
-      "name": "missav免翻全分类版[2026]",
+      "key": "csp_XYQHiker_黄色仓库XBPQ",
+      "name": "🔞黄色仓库[xbpq][免翻]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/missav%E5%85%8D%E7%BF%BB%E5%85%A8%E5%88%86%E7%B1%BB%E7%89%88.py",
+      "api": "csp_XBPQ",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/%E7%BB%BF%E8%89%B2%E4%BB%93%E5%BA%93xbpq.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-mrdld-m",
-      "name": "mrdld-m[2026]",
+      "key": "csp_XYQHiker_黄色仓库123",
+      "name": "🔍🔞黄色仓库123✈️🔗[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/mrdld-m.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E9%BB%84%E8%89%B2%E4%BB%93%E5%BA%93123.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-mrdld11",
-      "name": "mrdld11[2026]",
+      "key": "csp_XYQHiker_黄色仓库la",
+      "name": "🔍🔞黄色仓库啦✈️🔗[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/mrdld11.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E9%BB%84%E8%89%B2%E4%BB%93%E5%BA%93%E5%95%A6.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-mrdld-v10",
-      "name": "mrdld_v10[2026]",
+      "key": "csp_XYQHiker_酷爱成人网>",
+      "name": "🔞酷爱成人网✈️[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/mrdld_v10.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E9%85%B7%E7%88%B1%E6%88%90%E4%BA%BA%E7%BD%91.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-mrdld-v9",
-      "name": "mrdld_v9[2026]",
+      "key": "csp_XYQHiker_444咖啡",
+      "name": "🔍🔞444咖啡[XYQHiker][免翻]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/mrdld_v9.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/444%E5%92%96%E5%95%A1.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-mrds",
-      "name": "mrds[2026]",
+      "key": "csp_XYQHiker_hohoj",
+      "name": "🔍🔞HOHOJ[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/mrds.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/hohoj.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-mrds-v9",
-      "name": "mrds_v9[2026]",
+      "key": "csp_XYQHiker_麻豆社",
+      "name": "🔞麻豆社[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/mrds_v9.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E9%BA%BB%E8%B1%86%E7%A4%BE.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-pg202408",
-      "name": "pg202408[2026]",
+      "key": "csp_XYQHiker_asianssex",
+      "name": "🔞asianssex[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/pg202408.jar",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/asianssex.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-pg202501",
-      "name": "pg202501[2026]",
+      "key": "csp_XYQHiker_hdpornmovies",
+      "name": "🔞hdpornmovies[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/pg202501.jar",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/hdpornmovies.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-pg20250415",
-      "name": "pg20250415[2026]",
+      "key": "csp_XYQHiker_playav",
+      "name": "🔞playav验证[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/pg20250415.jar",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/playav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-rouav5星自愈",
-      "name": "rouav5星自愈[2026]",
+      "key": "csp_XYQHiker_qinav",
+      "name": "🔞Qinav[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/rouav5%E6%98%9F%E8%87%AA%E6%84%88.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/qinav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-rouav终极自愈-全功能版",
-      "name": "rouav终极自愈+全功能版[2026]",
+      "key": "csp_XYQHiker_91HD",
+      "name": "🔞91HD待更新[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/rouav%E7%BB%88%E6%9E%81%E8%87%AA%E6%84%88%2B%E5%85%A8%E5%8A%9F%E8%83%BD%E7%89%88.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/91hd.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-ru",
-      "name": "ru[2026]",
+      "key": "csp_XYQHiker_有爱爱uaa",
+      "name": "🔍🔞有爱爱uaa🔗[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/ru.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E6%9C%89%E7%88%B1%E7%88%B1.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.75
+      }
     },
     {
-      "key": "u26-saonhui7",
-      "name": "saonhui7[2026]",
+      "key": "csp_XYQHiker_紫色成人",
+      "name": "🔍🔞紫色成人[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/saonhui7.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E7%B4%AB%E8%89%B2%E6%88%90%E4%BA%BA.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-sebojuhe",
-      "name": "sebojuhe[2026]",
+      "key": "csp_XYQHiker_netflav",
+      "name": "🔍🔞NETFLAV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/sebojuhe.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/netflav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-ss聚合",
-      "name": "ss聚合[2026]",
+      "key": "csp_XYQHiker_av6k",
+      "name": "🔍🔞AV6K[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/ss%E8%81%9A%E5%90%88.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/av6k.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-ss聚合1",
-      "name": "ss聚合1[2026]",
+      "key": "csp_XYQHiker_苹果av",
+      "name": "🔞苹果AV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/ss%E8%81%9A%E5%90%881.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E8%8B%B9%E6%9E%9Cav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-supjav",
-      "name": "supjav[2026]",
+      "key": "csp_XYQHiker_theporn",
+      "name": "🔞ThePorn[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/supjav.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/theporn.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-xhamster-动态发布自愈版-2",
-      "name": "xHamster·动态发布自愈版_2[2026]",
+      "key": "csp_XYQHiker_麻豆视频91md",
+      "name": "🔞麻豆视频91md[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/xHamster%C2%B7%E5%8A%A8%E6%80%81%E5%8F%91%E5%B8%83%E8%87%AA%E6%84%88%E7%89%88_2.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E9%BA%BB%E8%B1%86%E8%A7%86%E9%A2%9191md.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-xbpqxyq",
-      "name": "xbpqxyq[2026]",
+      "key": "csp_XYQHiker_kanav",
+      "name": "🔍🔞KANAV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/xbpqxyq.jar",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/kanav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-xj101",
-      "name": "xj101[2026]",
+      "key": "csp_XYQHiker_色库TV",
+      "name": "🔞色库TV[XYQHiker]×",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/xj101.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E8%89%B2%E5%BA%93tv.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-xj102",
-      "name": "xj102[2026]",
+      "key": "csp_XYQHiker_5x社区",
+      "name": "🔍🔞5x社区✈️[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/xj102.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/5x%E7%A4%BE%E5%8C%BA.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-xj103",
-      "name": "xj103[2026]",
+      "key": "JAVDAYTV",
+      "name": "🔞JAVDAYTV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/xj103.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/javday.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-xj104",
-      "name": "xj104[2026]",
+      "key": "csp_XYQHiker_MOTV",
+      "name": "🔍🔞✈️MOTV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/xj104.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/motv.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-xj105",
-      "name": "xj105[2026]",
+      "key": "csp_XYQHiker_杏吧视频",
+      "name": "🔍🔞杏吧视频[XYQHiker][免翻]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/xj105.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E6%9D%8F%E5%90%A7%E8%A7%86%E9%A2%91.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-xj106",
-      "name": "xj106[2026]",
+      "key": "csp_XYQHiker_一起草",
+      "name": "🔞一起草[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/xj106.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E4%B8%80%E8%B5%B7%E8%8D%89.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-xj9he1",
-      "name": "xj9he1[2026]",
+      "key": "csp_XYQHiker_javffm",
+      "name": "🔍🔞JAVFFM[XYQHiker][免翻]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/xj9he1.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/javffm.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-xj9he1最终优化版全目录版本",
-      "name": "xj9he1最终优化版全目录版本[2026]",
+      "key": "csp_XYQHiker_dbro",
+      "name": "🔞D哥[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/xj9he1%E6%9C%80%E7%BB%88%E4%BC%98%E5%8C%96%E7%89%88%E5%85%A8%E7%9B%AE%E5%BD%95%E7%89%88%E6%9C%AC.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/dbro.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-xj9he1最终优化目录版",
-      "name": "xj9he1最终优化目录版[2026]",
+      "key": "csp_XYQHiker_youjizz",
+      "name": "🔞Youjizz[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/xj9he1%E6%9C%80%E7%BB%88%E4%BC%98%E5%8C%96%E7%9B%AE%E5%BD%95%E7%89%88.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/youjizz.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-xj9he2",
-      "name": "xj9he2[2026]",
+      "key": "csp_XYQHiker_ujizzcn",
+      "name": "🔞Ujizzcn[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/xj9he2.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/ujizzcn.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-xv123xf",
-      "name": "xv123xf[2026]",
+      "key": "csp_XYQHiker_pornlulu",
+      "name": "🔍🔞PornLuLu[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/xv123xf.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/pornlulu.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-zz聚合",
-      "name": "zz聚合[2026]",
+      "key": "csp_XYQHiker_91porn_asia",
+      "name": "🔍🔞91porn_asia[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/zz%E8%81%9A%E5%90%88.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/91porn_asia.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.75
+      }
     },
     {
-      "key": "u26-叔叔和侄女",
-      "name": "叔叔和侄女[2026]",
+      "key": "csp_XYQHiker_91porny",
+      "name": "🔞九色[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E5%8F%94%E5%8F%94%E5%92%8C%E4%BE%84%E5%A5%B3.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/91porny.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-成人卡通",
-      "name": "成人卡通[2026]",
+      "key": "csp_XYQHiker_91porn",
+      "name": "🔞91porn[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E6%88%90%E4%BA%BA%E5%8D%A1%E9%80%9A.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/91porn.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-推特app",
-      "name": "推特APP[2026]",
+      "key": "csp_XYQHiker_91porn永久官方",
+      "name": "🔞91porn永久官方[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E6%8E%A8%E7%89%B9APP.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/91porn%E6%B0%B8%E4%B9%85.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-暗夜蜜桃",
-      "name": "暗夜蜜桃[2026]",
+      "key": "csp_XYQHiker_91pinse",
+      "name": "🔞91pinse[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E6%9A%97%E5%A4%9C%E8%9C%9C%E6%A1%83.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/91pinse.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-暗夜蜜桃中文版",
-      "name": "暗夜蜜桃中文版[2026]",
+      "key": "csp_XYQHiker_taiav",
+      "name": "🔍TaiAv🔞[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E6%9A%97%E5%A4%9C%E8%9C%9C%E6%A1%83%E4%B8%AD%E6%96%87%E7%89%88.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/taiav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-爆色",
-      "name": "爆色[2026]",
+      "key": "csp_XYQHiker_nowavtv",
+      "name": "🔞NOWAVTV[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E7%88%86%E8%89%B2.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/nowavtv.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-禁果短剧",
-      "name": "禁果短剧[2026]",
+      "key": "csp_XYQHiker_sexsex",
+      "name": "🔞sexsex[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E7%A6%81%E6%9E%9C%E7%9F%AD%E5%89%A7.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/sexsex.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-终极自愈-全功能版lissavjp",
-      "name": "终极自愈+全功能版lissavjp[2026]",
+      "key": "csp_XYQHiker_鲨鱼av",
+      "name": "🔍🔞鲨鱼av[XYQHiker][免翻]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E7%BB%88%E6%9E%81%E8%87%AA%E6%84%88%2B%E5%85%A8%E5%8A%9F%E8%83%BD%E7%89%88lissavjp.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E9%B2%A8%E9%B1%BCav.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-草榴社区",
-      "name": "草榴社区[2026]",
+      "key": "csp_XYQHiker_javtsunami",
+      "name": "🔞javtsunami[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E8%8D%89%E6%A6%B4%E7%A4%BE%E5%8C%BA.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/javtsunami.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-蜜月短剧",
-      "name": "蜜月短剧[2026]",
+      "key": "csp_XYQHiker_肉视频🔞",
+      "name": "🔞肉视频x[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E8%9C%9C%E6%9C%88%E7%9F%AD%E5%89%A7.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/rouvide.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.8
+      }
     },
     {
-      "key": "u26-蜜桃源",
-      "name": "蜜桃源[2026]",
+      "key": "csp_XYQHiker_番号鸽",
+      "name": "🔞番号鸽[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E8%9C%9C%E6%A1%83%E6%BA%90.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/%E7%95%AA%E5%8F%B7%E9%B8%BD.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-连播fullhd",
-      "name": "连播FullHD[2026]",
+      "key": "csp_XYQHiker_18jtv🔞",
+      "name": "待修复🔞18jtv[XYQHiker]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E8%BF%9E%E6%92%ADFullHD.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/18jtv.json",
+      "style": {
+        "type": "rect",
+        "ratio": 1.6
+      }
     },
     {
-      "key": "u26-连播黄色仓库动态版",
-      "name": "连播黄色仓库动态版[2026]",
+      "key": "csp_xBPQ_搞aa",
+      "name": "🔞GAOAA[xbpq][免翻]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E8%BF%9E%E6%92%AD%E9%BB%84%E8%89%B2%E4%BB%93%E5%BA%93%E5%8A%A8%E6%80%81%E7%89%88.py",
+      "api": "csp_XBPQ",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "filterable": 0,
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/xbpq/gaoaaxxx.json"
     },
     {
-      "key": "u26-采花大盗",
-      "name": "采花大盗[2026]",
+      "key": "Jable(gm)",
+      "name": "🔍Jable[gm]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E9%87%87%E8%8A%B1%E5%A4%A7%E7%9B%97.py",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "changeable": 0,
+      "jar": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/gm/GM.jar",
+      "style": {
+        "type": "rect",
+        "ratio": 1.48
+      },
+      "api": "csp_GM",
+      "ext": {
+        "userScript": "https://gh-proxy.org/https://raw.githubusercontent.com/tvbw/18-/refs/heads/main/tv/gm/jable.user.js",
+        "debug": false,
+        "webViewSettings": {
+          "blockNetworkImage": true,
+          "blockList": [
+            "*.ico",
+            "*.png",
+            "https://*.adsco.re/*",
+            "https://*.googleapis.com/*",
+            "https://*.googlesyndication.com/*",
+            "https://*.googletagmanager.com/*",
+            "https://*.hpyjmp.com/*",
+            "https://*.magsrv.com/*",
+            "https://*.mnaspm.com/*",
+            "https://*.shukriya90.com/*",
+            "https://*.tapioni.com/*",
+            "https://*.tsyndicate.com/*",
+            "https://assets.jable.tv/assets/js/player.js"
+          ]
+        },
+        "spider": {
+          "homeContent": {
+            "loadUrl": "https://jable.tv"
+          },
+          "categoryContent": {
+            "loadUrl": "https://jable.tv/${tid:-latest-updates}/?from=${pg:-1}${sort_by:-}"
+          },
+          "detailContent": {
+            "loadUrl": "https://jable.tv/videos/${id}/"
+          },
+          "searchContent": {
+            "loadUrl": "https://jable.tv/search/${key}/?from=${pg:-1}"
+          }
+        }
+      }
     },
     {
-      "key": "u26-野果短剧",
-      "name": "野果短剧[2026]",
+      "key": "netflav(gm)",
+      "name": "🔍NETFLAV[gm]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E9%87%8E%E6%9E%9C%E7%9F%AD%E5%89%A7.py",
       "searchable": 1,
-      "quickSearch": 1
+      "quickSearch": 1,
+      "changeable": 0,
+      "jar": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/gm/GM.jar",
+      "style": {
+        "type": "rect",
+        "ratio": 1.48
+      },
+      "api": "csp_GM",
+      "ext": {
+        "userScript": "https://gh-proxy.org/https://raw.githubusercontent.com/tvbw/18-/refs/heads/main/tv/gm/netflav.user.js",
+        "debug": false,
+        "webViewSettings": {
+          "blockNetworkImage": true,
+          "blockList": [
+            "https://*.googletagmanager.com/*",
+            "https://*.imkirh.com/*",
+            "https://*.xlvirdr.com/*"
+          ]
+        },
+        "playUrlMatch": [
+          "https://*/*/master.m3u8*",
+          "https://*/*/v.mp4",
+          "https://*/*/playlist.m3u8*"
+        ],
+        "spider": {
+          "homeContent": {
+            "loadUrl": "https://netflav.com/trending"
+          },
+          "categoryContent": {
+            "loadUrl": "https://netflav.com/${tid}&page=${pg:-1}${range:-}"
+          },
+          "detailContent": {
+            "loadUrl": "https://netflav.com/video?id=${id}/"
+          },
+          "playerContent": {
+            "loadUrl": "https://netflav.com/video?id=${vod_id}#${src}"
+          },
+          "searchContent": {
+            "loadUrl": "https://netflav.com/search?keyword=${key}&page=${pg:-1}&type=title"
+          }
+        }
+      }
     },
     {
-      "key": "u26-黄色仓库动态版",
-      "name": "黄色仓库动态版[2026]",
+      "key": "XOJAV(gm)",
+      "name": "XOJAV[gm]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E9%BB%84%E8%89%B2%E4%BB%93%E5%BA%93%E5%8A%A8%E6%80%81%E7%89%88.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0,
+      "jar": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/gm/GM.jar",
+      "style": {
+        "type": "rect",
+        "ratio": 1.78
+      },
+      "api": "csp_GM",
+      "ext": {
+        "userScript": "https://gh-proxy.org/https://raw.githubusercontent.com/tvbw/18-/refs/heads/main/tv/gm/xojav.user.js",
+        "debug": false,
+        "webViewSettings": {
+          "blockNetworkImage": true,
+          "blockList": [
+            "*.css*",
+            "*.ico*",
+            "*.png*",
+            "*.svg",
+            "https://*.googleapis.com/*",
+            "https://*.googletagmanager.com/*",
+            "https://*.magsrv.com/*",
+            "https://*.pemsrv.com/*"
+          ]
+        },
+        "spider": {
+          "homeContent": {
+            "loadUrl": "https://xojav.tv/?lang=zh"
+          },
+          "categoryContent": {
+            "loadUrl": "https://xojav.tv/${tid}${sort_by:-}&mode=async&function=get_block&from=${pg:-1}"
+          },
+          "detailContent": {
+            "loadUrl": "https://xojav.tv/videos/${id}"
+          },
+          "searchContent": {
+            "loadUrl": "https://xojav.tv/search/${key}/?mode=async&function=get_block&sort_by=most_relevant&from_videos=${pg:-1}"
+          }
+        }
+      }
+    },
+    {
+      "api": "csp_Hsck",
+      "ext": "https://www.javsee.men/",
+      "filterable": 0,
+      "key": "csp_Hsck",
+      "name": "黄色仓库(爬虫)",
+      "quickSearch": 1,
       "searchable": 1,
-      "quickSearch": 1
+      "type": 3,
+      "jar": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/jar/xxx.jar"
     },
     {
       "key": "csp_LocalFile",
@@ -891,7 +4269,7 @@
       "key": "supjav.py-py",
       "name": "supjav.py[py]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/supjav.py",
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/supjav.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0,
@@ -905,7 +4283,7 @@
       "key": "黄色仓库",
       "name": "🔍黄色仓库[py]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/hsck.py",
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/hsck.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0,
@@ -919,7 +4297,7 @@
       "key": "fullhd.py/嗷",
       "name": "🔍FullHD[py]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/fullhd.py",
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/fullhd.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0,
@@ -933,7 +4311,7 @@
       "key": "推特APP.py/嗷",
       "name": "🔍推特APP[py][免翻]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/%E6%8E%A8%E7%89%B9APP.py",
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/%E6%8E%A8%E7%89%B9APP.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0,
