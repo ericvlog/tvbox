@@ -4255,7 +4255,7 @@
       "key": "cam4.py/嗷",
       "name": "cam4[直播][py]",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/Cam4.py",
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/py/cam4.py",
       "searchable": 0,
       "quickSearch": 0,
       "filterable": 0,
@@ -4323,29 +4323,31 @@
     },
     {
       "key": "csp_XYQHiker_avbebe",
-      "name": "🔞AVbebe[2026]",
+      "name": "🔞AVbebe",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/avbebe.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0,
       "style": {
         "type": "rect",
         "ratio": 1.33
-      }
+      },
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/avbebe.json"
     },
     {
       "key": "csp_XYQHiker_18av",
-      "name": "🔍🔞18AV[2026]",
+      "name": "🔍🔞18AV",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/tvbw/2026/main/18av.py",
+      "api": "csp_XYQHiker",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0,
       "style": {
         "type": "rect",
         "ratio": 1.6
-      }
+      },
+      "ext": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/XYQHiker/18av.json"
     },
     {
       "key": "155资源🔞",
