@@ -593,6 +593,7 @@ def proxy_play(handler, url):
         if v:
             handler.send_header(k, v)
     handler.send_header("Access-Control-Allow-Origin", "*")
+    handler.send_header("Content-Disposition", 'inline; filename="video.mp4"')
     handler.send_header("Connection", "close")
     handler.end_headers()
     sent = 0
@@ -614,7 +615,12 @@ def proxy_play(handler, url):
 
 
 def proxy_url(host, src):
-    return "http://%s/play?u=%s" % (host, urllib.parse.quote(src, safe=""))
+    """播放地址必须带 .mp4 后缀：不少盒子的播放器靠扩展名挑解码器，没后缀会走崩溃分支。"""
+    tail = src.split("?")[0].rstrip("/").split("/")[-1] or "video"
+    if not tail.lower().endswith((".mp4", ".m4v")):
+        tail = "video.mp4"
+    return "http://%s/play/%s?u=%s" % (host, urllib.parse.quote(tail, safe=""),
+                                       urllib.parse.quote(src, safe=""))
 
 
 # ---------- HTTP ----------
@@ -642,7 +648,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_HEAD(self):
         u = urllib.parse.urlsplit(self.path)
-        if u.path == "/play":
+        if u.path == "/play" or u.path.startswith("/play/"):
             q = urllib.parse.parse_qs(u.query)
             src = (q.get("u") or [""])[0]
             if not src:
@@ -679,7 +685,7 @@ class Handler(BaseHTTPRequestHandler):
                         "api": "/api.php/provide/vod/"})
             return
 
-        if path == "/play":
+        if path == "/play" or path.startswith("/play/"):
             src = (q.get("u") or [""])[0]
             if not src:
                 self.send_error(400, "missing u")
