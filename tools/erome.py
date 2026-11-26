@@ -29,10 +29,15 @@ try:
 except Exception:
     requests = None
 
-VER = "v1"
+VER = "v2"
 BASE = "https://www.erome.com"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+
+# 只要带视频的专辑（卡片上有 class="album-videos" 的计数图标）
+VIDEO_ONLY = True
+# 一页不够 20 条视频专辑时，最多往后翻几页拼
+MAX_PAGES = 4
 
 CATS = [
     ("latest", "最新"),
@@ -44,6 +49,8 @@ _LINK_RE = re.compile(r'<a[^>]+class="album-link"[^>]+href="(https?://[^"]+/a/[A
 _IMG_RE = re.compile(r'<img[^>]+class="album-thumbnail[^"]*"[^>]+src="([^"]+)"', re.S)
 _TITLE_RE = re.compile(r'<a[^>]+href="https://www\.erome\.com/a/[A-Za-z0-9]+"[^>]*>([^<]{1,200})</a>', re.S)
 _USER_RE = re.compile(r'<span class="album-user"[^>]*>([^<]{1,80})</span>', re.S)
+_VID_RE = re.compile(r'class="album-videos"[^>]*>.*?</svg>\s*(\d+)', re.S)
+_PIC_RE = re.compile(r'class="album-images"[^>]*>.*?</svg>\s*(\d+)', re.S)
 _SOURCE_RE = re.compile(r'<source[^>]+src="(https?://[^"]+?\.mp4[^"]*)"', re.S)
 _H1_RE = re.compile(r'<h1[^>]*>(.*?)</h1>', re.S)
 _PAGE_RE = re.compile(r'href="[^"]*[?&]page=(\d+)"', re.S)
@@ -96,32 +103,38 @@ class Spider(_Base):
             return r.text
         return None
 
-    def _get(self, url, timeout=12):
+    def _get(self, url, timeout=10):
         if requests is None:
             return None
+        host = urllib.parse.urlsplit(url).hostname or ""
+        # 先用 DoH 拿到真实 IP（首次约 0.3–0.8s），之后就固定走这个 IP
+        ip = self._ip.get(host)
+        if ip is None:
+            ip = _doh(host)
+            if ip:
+                self._ip[host] = ip
+        if ip:
+            real = socket.getaddrinfo
+            try:
+                socket.getaddrinfo = lambda h, p, *a, **k: real(ip, p, *a, **k) if h == host else real(h, p, *a, **k)
+                t = self._raw_get(url, timeout)
+                if t:
+                    return t
+            except Exception:
+                pass
+            finally:
+                socket.getaddrinfo = real
+        # 兜底：不 patch 直接试（DNS 没被污染的环境走这条）
         try:
-            t = self._raw_get(url, timeout)
-            if t:
-                return t
-        except Exception:
-            pass
-        # DNS 兜底：DoH 解析后 patch getaddrinfo 再试一次
-        host = urllib.parse.urlsplit(url).hostname
-        ip = self._ip.get(host) or _doh(host)
-        if not ip:
-            return None
-        self._ip[host] = ip
-        real = socket.getaddrinfo
-        try:
-            socket.getaddrinfo = lambda h, p, *a, **k: real(ip, p, *a, **k) if h == host else real(h, p, *a, **k)
             return self._raw_get(url, timeout)
         except Exception:
             return None
-        finally:
-            socket.getaddrinfo = real
 
     # ---------- 解析 ----------
-    def _rows(self, html):
+    def _rows(self, html, video_only=None):
+        """解析列表页。video_only=True 时只保留卡片上标了视频数的专辑。"""
+        if video_only is None:
+            video_only = VIDEO_ONLY
         rows = []
         if not html:
             return rows
@@ -130,16 +143,29 @@ class Spider(_Base):
             m = _LINK_RE.search(b) or re.search(r'href="(https?://[^"]+/a/[A-Za-z0-9]+)"', b)
             if not m:
                 continue
+            nvid = _VID_RE.search(b)
+            npic = _PIC_RE.search(b)
+            nv = int(nvid.group(1)) if nvid else 0
+            np_ = int(npic.group(1)) if npic else 0
+            if video_only and nv <= 0:
+                continue
             link = m.group(1)
             aid = link.rstrip('/').split('/')[-1]
             t = _TITLE_RE.search(b)
             pic = _IMG_RE.search(b)
             user = _USER_RE.search(b)
+            marks = []
+            if nv:
+                marks.append("视频%d" % nv)
+            if np_:
+                marks.append("图%d" % np_)
+            if user:
+                marks.append(_clean(user.group(1)))
             rows.append({
                 "vod_id": aid,
                 "vod_name": _clean(t.group(1)) if t else aid,
                 "vod_pic": pic.group(1) if pic else "",
-                "vod_remarks": _clean(user.group(1)) if user else "",
+                "vod_remarks": " · ".join(marks),
             })
         # 去重
         seen, out = set(), []
@@ -153,29 +179,40 @@ class Spider(_Base):
     def _page_html(self, path):
         return self._get(BASE + path)
 
+    def _gather(self, make_path, pg, want=20):
+        """从第 pg 页开始往后翻，凑够 want 条（只留视频专辑时一页可能不够）。"""
+        rows, seen = [], set()
+        p = pg
+        for _ in range(MAX_PAGES):
+            for r in self._rows(self._page_html(make_path(p)), self._video_only_flag):
+                if r["vod_id"] not in seen:
+                    seen.add(r["vod_id"])
+                    rows.append(r)
+            if len(rows) >= want:
+                break
+            p += 1
+        return rows
+
+    _video_only_flag = True
+
     # ---------- TVBox 六方法 ----------
     def homeContent(self, filter=True):
         return {"class": [{"type_id": k, "type_name": n} for k, n in CATS], "filters": {}}
 
     def homeVideoContent(self):
-        return {"list": self._rows(self._page_html("/explore"))}
+        return {"list": self._gather(lambda p: "/explore?page=%d" % p, 1, want=24)}
 
     def categoryContent(self, tid, pg, filter=False, extend=""):
         pg = max(1, int(str(pg or 1)))
-        if tid == "search":
-            html = self._page_html("/explore?page=%d" % pg)
-        else:
-            html = self._page_html("/explore?page=%d" % pg)
-        rows = self._rows(html)
-        total = len(_PAGE_RE.findall(html or ""))
+        rows = self._gather(lambda p: "/explore?page=%d" % p, pg, want=24)
         return {"list": rows, "page": pg, "pagecount": 999, "limit": len(rows) or 20,
                 "total": 9999, "msg": "pg%d" % pg}
 
     def searchContent(self, key, quick=False, pg="1"):
         pg = max(1, int(str(pg or 1)))
         q = urllib.parse.quote(str(key or ""))
-        html = self._page_html("/search?q=%s&page=%d" % (q, pg))
-        return {"list": self._rows(html), "page": pg, "pagecount": 999, "limit": 20, "total": 9999}
+        rows = self._gather(lambda p: "/search?q=%s&page=%d" % (q, p), pg, want=24)
+        return {"list": rows, "page": pg, "pagecount": 999, "limit": len(rows) or 20, "total": 9999}
 
     def detailContent(self, ids):
         aid = str(ids[0] if isinstance(ids, (list, tuple)) else ids)
