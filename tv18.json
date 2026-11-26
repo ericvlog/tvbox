@@ -29,6 +29,14 @@
       "quickSearch": 1
     },
     {
+      "key": "erome-py",
+      "name": "EroMe[图/视]",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/tools/erome.py",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
       "key": "资源管理.py",
       "name": "资源管理[py]",
       "type": 3,
