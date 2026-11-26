@@ -450,6 +450,21 @@ def parse_rows(html, video_only=VIDEO_ONLY):
     return out
 
 
+def resolve_tid(tid):
+    """电视端有时发数字分类 id（1 基或 0 基），这里统一映射成 CATS 的 key。"""
+    keys = [k for k, _ in CATS]
+    tid = (tid or "").strip()
+    if tid in keys:
+        return tid
+    if tid.isdigit():
+        i = int(tid)
+        if 1 <= i <= len(keys):
+            return keys[i - 1]
+        if 0 <= i < len(keys):
+            return keys[i]
+    return keys[0]
+
+
 def to_row(raw, video_only=VIDEO_ONLY):
     """把页面里解析出来的原始条目转成 CMS 行；纯图集按开关过滤掉。"""
     nv = int(raw.get("nv") or 0)
@@ -710,12 +725,7 @@ class Handler(BaseHTTPRequestHandler):
             self._json(pack(rows, pg, 999, 9999, with_class=True))
             return
 
-        if tid not in LIST_PATH:
-            body = {"code": 0, "msg": "unknown type_id: %s" % tid, "list": [],
-                    "class": class_items(), "filters": {}}
-            self._json(body)
-            return
-
+        tid = resolve_tid(tid)
         rows = gather(LIST_PATH[tid], pg)
         self._json(pack(rows, pg, 999, 9999, with_class=True))
 
