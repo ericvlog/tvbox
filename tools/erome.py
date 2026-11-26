@@ -29,7 +29,7 @@ try:
 except Exception:
     requests = None
 
-VER = "v3"
+VER = "v4"
 BASE = "https://www.erome.com"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
@@ -45,8 +45,14 @@ MAX_PAGES = 4
 
 CATS = [
     ("latest", "最新"),
+    ("feed", "关注动态"),
+    ("following", "我的关注"),
+    ("subscriptions", "订阅"),
     ("search", "搜索"),
 ]
+
+# 需要登录 cookie 才能有内容的分类（游客访问会返回 0 个专辑）
+LOGIN_REQUIRED = ("feed", "following", "subscriptions")
 
 _ALBUM_RE = re.compile(r'<div class="[^"]*\balbum\b[^"]*"[^>]*>.*?</div>\s*</div>\s*</div>', re.S)
 _LINK_RE = re.compile(r'<a[^>]+class="album-link"[^>]+href="(https?://[^"]+/a/[A-Za-z0-9]+)"', re.S)
@@ -225,9 +231,36 @@ class Spider(_Base):
     def homeVideoContent(self):
         return {"list": self._gather(lambda p: "/explore?page=%d" % p, 1, want=24)}
 
+    def _note(self, text):
+        return [{"vod_id": "note", "vod_name": text, "vod_pic": "", "vod_remarks": "提示"}]
+
     def categoryContent(self, tid, pg, filter=False, extend=""):
         pg = max(1, int(str(pg or 1)))
-        rows = self._gather(lambda p: "/explore?page=%d" % p, pg, want=24)
+        tid = tid or "latest"
+
+        if tid in LOGIN_REQUIRED and not self._cookie:
+            return {"list": self._note(
+                "「%s」需要登录：先跑 erome_login.py 抓 cookie，"
+                "再填到本文件顶部 COOKIE 或本源的 extend 字段" % dict(CATS).get(tid, tid)),
+                "page": pg, "pagecount": 1, "limit": 20, "total": 1}
+
+        if tid == "latest":
+            rows = self._gather(lambda p: "/explore?page=%d" % p, pg, want=24)
+        elif tid == "feed":
+            rows = self._gather(lambda p: "/feed?page=%d" % p, pg, want=24)
+        elif tid == "following":
+            rows = self._gather(lambda p: "/following?page=%d" % p, pg, want=24)
+        elif tid == "subscriptions":
+            rows = self._gather(lambda p: "/subscriptions?page=%d" % p, pg, want=24)
+        elif tid == "search":
+            rows = self._gather(lambda p: "/explore?page=%d" % p, pg, want=24)
+        else:
+            rows = self._gather(lambda p: "/explore?page=%d" % p, pg, want=24)
+
+        if not rows and tid in LOGIN_REQUIRED:
+            return {"list": self._note(
+                "「%s」没有返回内容：cookie 可能已过期，或这个账号没有关注/订阅任何人" % tid),
+                "page": pg, "pagecount": 1, "limit": 20, "total": 1}
         return {"list": rows, "page": pg, "pagecount": 999, "limit": len(rows) or 20,
                 "total": 9999, "msg": "pg%d" % pg}
 
