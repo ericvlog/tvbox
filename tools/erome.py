@@ -29,10 +29,14 @@ try:
 except Exception:
     requests = None
 
-VER = "v2"
+VER = "v3"
 BASE = "https://www.erome.com"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+
+# 登录 cookie（留空 = 游客，只看公开专辑）。
+# 想用账号权限：把 erome_login.py 抓到的串粘到这里，或填到电视端该源的 extend 字段。
+COOKIE = ""
 
 # 只要带视频的专辑（卡片上有 class="album-videos" 的计数图标）
 VIDEO_ONLY = True
@@ -87,14 +91,33 @@ class Spider(_Base):
             pass
         self._ip = {}
         self._ref = {}
+        self._cookie = COOKIE
         self._hdr = {
             "User-Agent": UA,
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             "Accept-Language": "en-US,en;q=0.9",
         }
+        if self._cookie:
+            self._hdr["Cookie"] = self._cookie
 
     # ---------- 基础请求 ----------
     def init(self, extend=""):
+        """extend 可以放登录 cookie（两种写法都认）：
+           1) 直接写 cookie 串：  PHPSESSID=xxx; other=yyy
+           2) JSON：              {"cookie": "PHPSESSID=xxx; other=yyy"}
+        """
+        ext = (extend or "").strip()
+        if not ext:
+            return None
+        if ext.startswith("{"):
+            try:
+                obj = json.loads(ext)
+                ext = (obj.get("cookie") or "").strip()
+            except Exception:
+                pass
+        if ext and "=" in ext:
+            self._cookie = ext
+            self._hdr["Cookie"] = ext
         return None
 
     def _raw_get(self, url, timeout=12):
@@ -255,10 +278,13 @@ class Spider(_Base):
 
     def playerContent(self, flag, id, vipFlags=None):
         url = id or ""
-        hdr = {"User-Agent": UA}
         ref = self._ref.get(url)
         if not ref:
             m = re.search(r'/a/([A-Za-z0-9]+)', url)
             ref = ("%s/a/%s" % (BASE, m.group(1))) if m else (BASE + "/")
-        hdr["Referer"] = ref
+        hdr = {"User-Agent": UA, "Referer": ref}
+        if self._cookie:
+            hdr["Cookie"] = self._cookie
         return {"parse": 0, "playUrl": "", "url": url, "header": hdr, "jx": 0, "time": 0}
+
+
