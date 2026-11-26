@@ -24,6 +24,7 @@ import { execFileSync } from 'node:child_process';
 const TARGETS = [
   { key: 'spankbang-lan', port: 8080, site: 'spankbang-gateway' },
   { key: 'sexkbj-lan', port: 8081, site: 'sexkbj-gateway' },
+  { key: 'erome-lan', port: 8082, site: 'erome-gateway' },
 ];
 const CONFIGS = ['tv18.json', 'tv18-standalone.json'];
 

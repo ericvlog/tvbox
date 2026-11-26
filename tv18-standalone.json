@@ -21,6 +21,14 @@
       "quickSearch": 1
     },
     {
+      "key": "erome-lan",
+      "name": "EroMe[网关]",
+      "type": 1,
+      "api": "http://10.20.116.223:8082/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    },
+    {
       "key": "sexkbj-py",
       "name": "SexKBJ[韩]",
       "type": 3,
