@@ -133,6 +133,8 @@ class Browser:
     def start(self):
         import websocket  # noqa: F401
         if self.alive():
+            # 浏览器已经在跑（例如上次的进程还在），直接挂上去，不要再起一个抢 profile
+            self._connect()
             return
         chrome = next((p for p in CHROME_CANDIDATES if p and os.path.exists(p)), None)
         if not chrome:
@@ -202,10 +204,25 @@ class Browser:
             return False
 
     def ensure(self):
-        if self.ws is None or not self.alive():
-            log("[chrome] restarting")
-            self.stop()
-            self.start()
+        """ws 断了就重连；连不上就重启 Chrome。"""
+        if self.ws is not None and self._ws_ok():
+            return
+        log("[chrome] (re)connect")
+        try:
+            if self.alive():
+                self._connect()          # 浏览器还活着，只重连 ws
+                return
+        except Exception as e:
+            log("[chrome] reconnect failed:", e)
+        self.stop()
+        self.start()
+
+    def _ws_ok(self):
+        try:
+            self._call("Browser.getVersion")
+            return True
+        except Exception:
+            return False
 
     def _hide(self):
         try:
