@@ -113,6 +113,13 @@ class Browser:
         self._id = 0
         self.ready_origin = False
         self.cache = {}
+        # CDP 是单通道：一次只能跑一条 evaluate，多请求必须排队，否则 ws 会互相踩、偶发超时
+        self.lock = threading.RLock()
+        self.connect_lock = threading.Lock()
+        self.last_good = {}          # path -> rows（上次成功的结果，抓取失败时顶上去）
+        self.detail_cache = {}       # aid -> detail dict
+        self.detail_lock = threading.Lock()
+        self.detail_ttl = 1800
 
     # ---- 底层 ----
     def _http_json(self, path, timeout=5):
@@ -179,23 +186,30 @@ class Browser:
     def _call(self, method, **params):
         if self.ws is None:
             raise RuntimeError("no ws")
-        self._id += 1
-        mid = self._id
-        self.ws.send(json.dumps({"id": mid, "method": method, "params": params or {}}))
-        end = time.time() + 60
-        while time.time() < end:
-            raw = self.ws.recv()
-            if '"id"' not in raw:
-                continue
-            try:
-                msg = json.loads(raw)
-            except Exception:
-                continue
-            if msg.get("id") == mid:
-                if "error" in msg:
-                    raise RuntimeError(str(msg["error"])[:200])
-                return msg.get("result") or {}
-        raise TimeoutError(method)
+        with self.lock:
+            self._id += 1
+            mid = self._id
+            self.ws.send(json.dumps({"id": mid, "method": method, "params": params or {}}))
+            end = time.time() + 90
+            while time.time() < end:
+                try:
+                    raw = self.ws.recv()
+                except Exception as e:
+                    self.ws = None
+                    raise RuntimeError("ws broken: %s" % e)
+                if '"id"' not in raw:
+                    continue
+                try:
+                    msg = json.loads(raw)
+                except Exception:
+                    continue
+                if msg.get("id") == mid:
+                    if "error" in msg:
+                        raise RuntimeError(str(msg["error"])[:200])
+                    return msg.get("result") or {}
+            # 超时就把这条连接标记为脏，下一次调用会重连
+            self.ws = None
+            raise TimeoutError(method)
 
     def alive(self):
         try:
@@ -204,18 +218,21 @@ class Browser:
             return False
 
     def ensure(self):
-        """ws 断了就重连；连不上就重启 Chrome。"""
+        """ws 断了就重连；连不上就重启 Chrome。多线程下只有一个线程负责重连。"""
         if self.ws is not None and self._ws_ok():
             return
-        log("[chrome] (re)connect")
-        try:
-            if self.alive():
-                self._connect()          # 浏览器还活着，只重连 ws
+        with self.connect_lock:
+            if self.ws is not None and self._ws_ok():
                 return
-        except Exception as e:
-            log("[chrome] reconnect failed:", e)
-        self.stop()
-        self.start()
+            log("[chrome] (re)connect")
+            try:
+                if self.alive():
+                    self._connect()          # 浏览器还活着，只重连 ws
+                    return
+            except Exception as e:
+                log("[chrome] reconnect failed:", e)
+            self.stop()
+            self.start()
 
     def _ws_ok(self):
         try:
@@ -298,14 +315,21 @@ class Browser:
             return None
 
     def list_rows(self, path):
-        """直接在页面里解析列表，只把几十行 JSON 传回来（不用搬 200KB HTML）。"""
-        self.ensure()
-        if not self._ensure_ready():
-            log("[list] 页面没就绪", path)
-        url = SITE + path
-        js = r"""(async () => {
+        """直接在页面里解析列表，只把几十行 JSON 传回来（不用搬 200KB HTML）。
+
+        失败时退回上一次成功的结果（last_good），避免电视端看到整页空白。
+        """
+        try:
+            self.ensure()
+            if not self._ensure_ready():
+                log("[list] 页面没就绪", path)
+            url = SITE + path
+            js = r"""(async () => {
   try {
-    const r = await fetch(%s, {credentials:'include', cache:'no-store'});
+    const ctl = new AbortController();
+    const to = setTimeout(() => ctl.abort(), 45000);
+    const r = await fetch(%s, {credentials:'include', cache:'no-store', signal: ctl.signal});
+    clearTimeout(to);
     const t = await r.text();
     const d = new DOMParser().parseFromString(t, 'text/html');
     const num = (el) => { if (!el) return 0; const m = (el.textContent||'').match(/(\d+)/); return m ? parseInt(m[1], 10) : 0; };
@@ -337,19 +361,37 @@ class Browser:
     return JSON.stringify({status: r.status, len: t.length, rows: out});
   } catch (e) { return JSON.stringify({error: String(e)}); }
 })()""" % json.dumps(url)
-        data = self.eval_json(js)
-        if not data or data.get("error"):
-            log("[list] %s 失败: %s" % (path, (data or {}).get("error")))
+            data = None
+            for attempt in range(2):
+                data = self.eval_json(js)
+                if data and data.get("rows"):
+                    break
+                log("[list] %s 第 %d 次失败: %s" % (path, attempt + 1, (data or {}).get("error")))
+                time.sleep(0.4)
+                self.ensure()
+            if data and data.get("rows"):
+                self.last_good[path] = data["rows"]
+                return data["rows"]
+            stale = self.last_good.get(path)
+            if stale:
+                log("[list] %s 用上次缓存顶替（%d 条）" % (path, len(stale)))
+                return stale
             return []
-        return data.get("rows") or []
+        except Exception as e:
+            log("[list] %s 异常: %s" % (path, e))
+            return self.last_good.get(path, [])
 
     def detail_rows(self, aid):
-        self.ensure()
-        if not self._ensure_ready():
-            log("[detail] 页面没就绪")
+        with self.detail_lock:
+            hit = self.detail_cache.get(aid)
+            if hit and time.time() - hit[0] < self.detail_ttl:
+                return hit[1]
         js = r"""(async () => {
   try {
-    const r = await fetch('/a/%s', {credentials:'include', cache:'no-store'});
+    const ctl = new AbortController();
+    const to = setTimeout(() => ctl.abort(), 45000);
+    const r = await fetch('/a/%s', {credentials:'include', cache:'no-store', signal: ctl.signal});
+    clearTimeout(to);
     const t = await r.text();
     const d = new DOMParser().parseFromString(t, 'text/html');
     const h1 = d.querySelector('h1');
@@ -363,7 +405,27 @@ class Browser:
       srcs: [...new Set(srcs)].slice(0, 4), pics: imgs.length});
   } catch (e) { return JSON.stringify({error: String(e)}); }
 })()""" % aid
-        return self.eval_json(js)
+        data = None
+        for attempt in range(2):
+            try:
+                self.ensure()
+                data = self.eval_json(js)
+            except Exception as e:
+                log("[detail] %s 第 %d 次异常: %s" % (aid, attempt + 1, e))
+                data = None
+            if data and not data.get("error") and data.get("srcs"):
+                break
+            time.sleep(0.5)
+        if data and not data.get("error"):
+            with self.detail_lock:
+                self.detail_cache[aid] = (time.time(), data)
+            return data
+        with self.detail_lock:
+            hit = self.detail_cache.get(aid)
+        if hit:
+            log("[detail] %s 用缓存顶替" % aid)
+            return hit[1]
+        return data
 
     def _ensure_ready(self, timeout_s=25):
         """确保当前标签页停在 erome 且已加载完，否则页面内 fetch 会报 Failed to fetch。"""
@@ -514,6 +576,8 @@ def gather(path_fmt, pg, want=24):
             raw = BROWSER.list_rows(path_fmt % p)
         except Exception as e:
             log("[list] %s 失败: %s" % (path_fmt % p, e))
+            break
+        if not raw:
             break
         for item in raw:
             r = to_row(item)
@@ -772,6 +836,21 @@ class Tee(object):
             pass
 
 
+def watchdog(stop_evt, interval=60):
+    """每 60 秒看一眼：浏览器死了就重连/重启，避免「有时可以有时不行」。"""
+    while not stop_evt.wait(interval):
+        try:
+            if not BROWSER.alive():
+                log("[watch] chrome down, restarting")
+                BROWSER.ws = None
+                BROWSER.start()
+            elif BROWSER.ws is None:
+                log("[watch] ws missing, reconnecting")
+                BROWSER._connect()
+        except Exception as e:
+            log("[watch] failed:", e)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--port", type=int, default=8082)
@@ -803,6 +882,9 @@ def main():
     except Exception as e:
         log("[warm] failed:", e)
 
+    stop_evt = threading.Event()
+    threading.Thread(target=watchdog, args=(stop_evt,), daemon=True).start()
+
     srv = ThreadingHTTPServer(("0.0.0.0", args.port), Handler)
     srv.daemon_threads = True
     log("[http] listening")
@@ -811,6 +893,7 @@ def main():
     except KeyboardInterrupt:
         pass
     finally:
+        stop_evt.set()
         BROWSER.stop()
     return 0
 
