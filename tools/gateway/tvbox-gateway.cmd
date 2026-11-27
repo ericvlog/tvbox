@@ -37,7 +37,7 @@ powershell -NoProfile -Command "Get-Content '%BASE%\last-ip-sync.log' -Encoding 
 if not "%RC%"=="0" (
   echo       [!] sync failed - see last-ip-sync.log
 ) else (
-  echo       [OK] synced (no commit when the IP did not change)
+  echo       [OK] synced - no commit when the IP did not change
 )
 
 :done

@@ -164,8 +164,8 @@ if (!changed.length) {
 
 if (PUSH) {
   try {
-    gitPush(changed, hosts.join(' '));
-    console.log('\n[✓] 已推送。App 里刷新订阅（或删配置重加）即可生效。');
+    const pushed = gitPush(changed, hosts.join(' '));
+    console.log(pushed ? '\n[✓] 已推送。App 里刷新订阅（或删配置重加）即可生效。' : '\n[=] 内容未变，无需推送。');
   } catch (e) {
     console.error('[!] push 失败：', e.stderr ? e.stderr.toString() : e.message);
     done(1);
