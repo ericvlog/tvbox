@@ -1,28 +1,73 @@
 @echo off
 chcp 65001 >nul
 set PYTHONUTF8=1
-cd /d "C:\Users\plsharevme\tvbox-gateway"
 set BASE=C:\Users\plsharevme\tvbox-gateway
+set REPO=C:\Users\plsharevme\tvbox-repo
+set PS=powershell -NoProfile -ExecutionPolicy Bypass -File "%BASE%\status.ps1"
+cd /d "%BASE%"
+
+if /i "%~1"=="menu" goto menu
+if /i "%~1"=="stop" goto stoponly
+if /i "%~1"=="status" goto statusonly
+if /i "%~1"=="ip" goto iponly
+goto auto
+
+:auto
+cls
+echo ==========================================================
+echo   TVBox local gateways  :8080 spankbang  :8081 sexkbj  :8082 erome
+echo ==========================================================
+echo.
+%PS% -Ips
+echo.
+echo [2/3] starting gateways (already-running ones are skipped) ...
+wscript "%BASE%\start-all-hidden.vbs"
+%PS% -Wait 90
+echo.
+echo [3/3] syncing configured IP to this machine's current LAN IP ...
+if not exist "%REPO%\.git" (
+  echo       [!] repo not found: %REPO%  - skipped
+  goto done
+)
+pushd "%REPO%"
+node tools\update-gateway-ip.mjs --push > "%BASE%\last-ip-sync.log" 2>&1
+set RC=%ERRORLEVEL%
+popd
+powershell -NoProfile -Command "Get-Content '%BASE%\last-ip-sync.log' -Encoding UTF8 | Select-Object -Last 7 | ForEach-Object { '      ' + $_ }"
+if not "%RC%"=="0" (
+  echo       [!] sync failed - see last-ip-sync.log
+) else (
+  echo       [OK] synced (no commit when the IP did not change)
+)
+
+:done
+echo.
+%PS% -Status
+echo.
+echo Gateways keep running in background - you can close this window.
+echo For stop / restart / logs: run this icon again and press M within 8s.
+echo.
+choice /c MQ /t 8 /d Q /n /m "M=menu   Q=close now (auto-close in 8s): " >nul
+if errorlevel 2 exit /b 0
+goto menu
 
 :menu
 cls
 echo ==========================================
-echo   TVBox 本机网关 (8080 spankbang / 8081 sexkbj / 8082 erome)
+echo   TVBox local gateways
 echo ==========================================
 echo.
-for %%p in (8080 8081 8082) do (
-  powershell -NoProfile -Command "if((Get-NetTCPConnection -LocalPort %%p -State Listen -EA 0)){'  %%p  : 运行中'}else{'  %%p  : 未启动'}"
-)
+%PS% -Status
 echo.
-echo   [1] 启动全部（后台无窗口）
-echo   [2] 停止全部
-echo   [3] 重启全部
-echo   [4] 更新配置里的本机 IP 并 push
-echo   [5] 只看状态（跑一次检测）
-echo   [6] 打开日志目录
-echo   [0] 退出
+echo   [1] start all  (background, no window)
+echo   [2] stop all
+echo   [3] restart all
+echo   [4] re-sync local IP and push
+echo   [5] status only
+echo   [6] open log folder
+echo   [0] exit
 echo.
-set /p CH=选择: 
+set /p CH=select: 
 if "%CH%"=="1" goto start
 if "%CH%"=="2" goto stop
 if "%CH%"=="3" goto restart
@@ -33,47 +78,44 @@ if "%CH%"=="0" exit /b 0
 goto menu
 
 :start
-echo 正在后台启动三个网关...
+echo starting all gateways in background ...
+wscript "%BASE%\start-all-hidden.vbs"
+timeout /t 12 >nul
+goto status
+
+:restart
+%PS% -Stop
 wscript "%BASE%\start-all-hidden.vbs"
 timeout /t 12 >nul
 goto status
 
 :stop
-echo 正在停止...
-powershell -NoProfile -Command "Get-CimInstance Win32_Process -Filter \"Name='cmd.exe'\" | ?{$_.CommandLine -match 'start-erome|start-sexkbj|tbox-gateway\\start.cmd'} | %%{Stop-Process -Id $_.ProcessId -Force -EA 0}"
-powershell -NoProfile -Command "Get-CimInstance Win32_Process -Filter \"Name='python.exe'\" | ?{$_.CommandLine -match '_gateway.py'} | %%{Stop-Process -Id $_.ProcessId -Force -EA 0}"
-powershell -NoProfile -Command "Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | ?{$_.CommandLine -match 'erome-login-profile|sb-gateway-profile'} | %%{Stop-Process -Id $_.ProcessId -Force -EA 0}"
-timeout /t 3 >nul
-goto status
+:stoponly
+%PS% -Stop
+if /i "%~1"=="stop" exit /b 0
+goto menu
 
-:restart
-call :dostop
-wscript "%BASE%\start-all-hidden.vbs"
-timeout /t 12 >nul
-goto status
-
-:dostop
-powershell -NoProfile -Command "Get-CimInstance Win32_Process -Filter \"Name='cmd.exe'\" | ?{$_.CommandLine -match 'start-erome|start-sexkbj|tbox-gateway\\start.cmd'} | %%{Stop-Process -Id $_.ProcessId -Force -EA 0}"
-powershell -NoProfile -Command "Get-CimInstance Win32_Process -Filter \"Name='python.exe'\" | ?{$_.CommandLine -match '_gateway.py'} | %%{Stop-Process -Id $_.ProcessId -Force -EA 0}"
-powershell -NoProfile -Command "Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | ?{$_.CommandLine -match 'erome-login-profile|sb-gateway-profile'} | %%{Stop-Process -Id $_.ProcessId -Force -EA 0}"
-timeout /t 3 >nul
+:statusonly
+%PS% -Status
 exit /b 0
 
 :status
 echo.
-echo --- 端口与接口 ---
-powershell -NoProfile -Command "foreach($p in 8080,8081,8082){ try{ $r=Invoke-WebRequest \"http://127.0.0.1:$p/api.php/provide/vod/?ac=list&pg=1\" -UseBasicParsing -TimeoutSec 60; $j=$r.Content|ConvertFrom-Json; '{0}  OK  {1} 条' -f $p,$j.list.Count }catch{ '{0}  不可用' -f $p } }"
+%PS% -Status
 echo.
 pause
 goto menu
 
 :ip
-cd /d "C:\Users\plsharevme\tvbox-repo"
+:iponly
+pushd "%REPO%"
 node tools\update-gateway-ip.mjs --push
+popd
+if /i "%~1"=="ip" exit /b 0
 echo.
 pause
 goto menu
 
 :logs
-start "" "C:\Users\plsharevme\tvbox-gateway"
+start "" "%BASE%"
 goto menu

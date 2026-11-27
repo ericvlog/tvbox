@@ -121,10 +121,16 @@ function rewrite(t, ip) {
 
 function gitPush(changed, summary) {
   const run = (args) => execFileSync('git', args, { cwd: root, stdio: 'pipe' }).toString().trim();
+  const dirty = run(['status', '--porcelain', '--', ...new Set(changed)]);
+  if (!dirty) {
+    console.log('[=] 文件内容与已提交版本一致，无需提交');
+    return null;
+  }
   run(['add', ...new Set(changed)]);
   run(['commit', '-m', `Point gateway sites at ${summary}\n\n本机网关内网 IP 变了（手机热点 DHCP），自动更新。`]);
   execFileSync('git', ['push', 'origin', 'HEAD'], { cwd: root, stdio: 'pipe' });
   console.log('[>] 提交:', run(['log', '--oneline', '-1']));
+  return run(['log', '--oneline', '-1']);
 }
 
 const targets = ONLY ? TARGETS.filter((t) => t.key === ONLY) : TARGETS;
