@@ -35,6 +35,8 @@ const value = (name, dflt) => {
   return i >= 0 && argv[i + 1] ? argv[i + 1] : dflt;
 };
 
+const done = (code) => { process.exitCode = code; setTimeout(() => process.exit(code), 250); };
+
 const PUSH = flag('--push');
 const SET = value('--set', null);
 const ONLY = value('--only', null);
@@ -136,7 +138,7 @@ function gitPush(changed, summary) {
 const targets = ONLY ? TARGETS.filter((t) => t.key === ONLY) : TARGETS;
 if (!targets.length) {
   console.error(`[!] 未知的 --only 值，可选：${TARGETS.map((t) => t.key).join(', ')}`);
-  process.exit(1);
+  done(1);
 }
 
 const changed = [];
@@ -157,7 +159,7 @@ for (const t of targets) {
 
 if (!changed.length) {
   console.log(failed ? '[!] 有网关没应答，但配置无需改动。' : '[=] 配置无需改动。');
-  process.exit(failed ? 1 : 0);
+  done(failed ? 1 : 0);
 }
 
 if (PUSH) {
@@ -166,7 +168,7 @@ if (PUSH) {
     console.log('\n[✓] 已推送。App 里刷新订阅（或删配置重加）即可生效。');
   } catch (e) {
     console.error('[!] push 失败：', e.stderr ? e.stderr.toString() : e.message);
-    process.exit(1);
+    done(1);
   }
 } else {
   console.log('\n[✓] 本地已改。要发布请加 --push。');
