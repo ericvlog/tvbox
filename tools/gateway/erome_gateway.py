@@ -779,38 +779,88 @@ def pack(items, page=1, pagecount=999, total=9999, msg="ok", with_class=False):
 
 
 # ---------- 播放代理 ----------
+CHUNK_MAX = 1536 * 1024   # 单片 1.5MB：erome CDN 单连接约 0.6MB/s，一片约 2.5 秒；盒子播放器单请求超时更短，片不能大
+
+
+def _parse_range(h):
+    """'bytes=123-' / 'bytes=123-456' -> (123, 456|None)"""
+    if not h:
+        return None
+    m = re.match(r"\s*bytes\s*=\s*(\d+)\s*-\s*(\d*)\s*$", h)
+    if not m:
+        return None
+    return int(m.group(1)), (int(m.group(2)) if m.group(2) else None)
+
+
 def proxy_play(handler, url):
-    """转发 CDN 视频，补 Referer（裸请求 403）。"""
+    """转发 CDN 视频，补 Referer（裸请求 403）。
+
+    erome 的 CDN 单连接只有 ~0.6 MB/s。盒子播放器读完一段就关连接（日志里全是 10053），
+    所以长视频不能一次给完：按 3MB 切片，每片几秒就传完，播放器会自己接着要下一片。
+    """
     m = re.search(r"/a/([A-Za-z0-9]+)", url)
     ref = ("%s/a/%s" % (SITE, m.group(1))) if m else (SITE + "/")
+    req_rng = _parse_range(handler.headers.get("Range"))
+    start = 0
+    end = None
+    if req_rng:
+        start, end = req_rng
+        if end is None or end - start + 1 > CHUNK_MAX:
+            end = start + CHUNK_MAX - 1
     headers = {"User-Agent": UA, "Referer": ref, "Accept": "*/*"}
-    rng = handler.headers.get("Range")
-    if rng:
-        headers["Range"] = rng
+    if req_rng:
+        headers["Range"] = "bytes=%d-%d" % (start, end)
     req = urllib.request.Request(url, headers=headers)
     try:
-        resp = urllib.request.urlopen(req, timeout=40, context=_CTX)
+        resp = urllib.request.urlopen(req, timeout=120, context=_CTX)
     except Exception as e:
-        log("[play] open failed:", e)
-        handler.send_error(502, "bad gateway")
+        log("[play] open failed: %s (%s)" % (e, url.split("?")[0][-40:]))
+        try:
+            handler.send_error(502, "bad gateway")
+        except Exception:
+            pass
         return
-    handler.send_response(resp.status)
-    for k in ("Content-Type", "Content-Length", "Content-Range", "Accept-Ranges"):
-        v = resp.headers.get(k)
-        if v:
-            handler.send_header(k, v)
-    handler.send_header("Access-Control-Allow-Origin", "*")
-    handler.send_header("Content-Disposition", 'inline; filename="video.mp4"')
-    handler.send_header("Connection", "close")
-    handler.end_headers()
-    sent = 0
+    total = None
+    cr = resp.headers.get("Content-Range") or ""
+    mm = re.search(r"/(\d+)\s*$", cr)
+    if mm:
+        total = int(mm.group(1))
+    elif resp.headers.get("Content-Length"):
+        total = int(resp.headers["Content-Length"])
     try:
+        if req_rng and total:
+            # 明确回 206 + 精确区间，播放器才知道「还能往后要」
+            last = min(end, total - 1)
+            body_len = last - start + 1
+            handler.send_response(206)
+            handler.send_header("Content-Range", "bytes %d-%d/%d" % (start, last, total))
+            handler.send_header("Content-Length", str(body_len))
+        else:
+            handler.send_response(resp.status)
+            v = resp.headers.get("Content-Length")
+            if v:
+                handler.send_header("Content-Length", v)
+        handler.send_header("Content-Type", resp.headers.get("Content-Type") or "video/mp4")
+        handler.send_header("Accept-Ranges", "bytes")
+        handler.send_header("Cache-Control", "no-store")
+        handler.send_header("Access-Control-Allow-Origin", "*")
+        handler.send_header("Content-Disposition", 'inline; filename="video.mp4"')
+        handler.send_header("Connection", "close")
+        handler.end_headers()
+        if handler.command == "HEAD":
+            log("[play] HEAD %s -> %s" % (url.split("?")[0][-40:], resp.status))
+            return
+        sent = 0
         while True:
-            chunk = resp.read(65536)
+            chunk = resp.read(262144)
             if not chunk:
                 break
             handler.wfile.write(chunk)
             sent += len(chunk)
+            try:
+                handler.wfile.flush()
+            except Exception:
+                break
     except Exception as e:
         log("[play] stopped after %d bytes: %s" % (sent, e))
     finally:
@@ -818,7 +868,8 @@ def proxy_play(handler, url):
             handler.wfile.flush()
         except Exception:
             pass
-    log("[play] %s -> %s, %d bytes" % (url.split("?")[0][-40:], resp.status, sent))
+    log("[play] %s range=%s -> %s, %d bytes" % (
+        url.split("?")[0][-40:], handler.headers.get("Range") or "-", resp.status, sent))
 
 
 def proxy_url(host, src):
