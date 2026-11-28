@@ -28,7 +28,7 @@ import urllib.parse
 import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-VER = "v1"
+VER = "v1.2"
 
 SITE = "https://www.erome.com"
 PROFILE = os.path.join(tempfile.gettempdir(), "erome-login-profile")
@@ -58,6 +58,80 @@ LIST_PATH = {
     "liked": "/user/liked?page=%d",
     "saved": "/user/saved?page=%d",
 }
+
+# ---------- 时长缓存（海报上显示「最长 02:31」用） ----------
+DUR_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "durations.json")
+DUR_TTL = 7 * 24 * 3600
+DUR = {}
+_dur_lock = threading.Lock()
+_dur_dirty = [False]
+_prefetch_lock = threading.Lock()
+_prefetch_running = [False]
+
+
+def load_dur():
+    try:
+        if os.path.exists(DUR_PATH):
+            with open(DUR_PATH, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, dict):
+                DUR.update(data)
+            log("[dur] 载入 %d 个专辑时长" % len(DUR))
+    except Exception as e:
+        log("[dur] 载入失败: %s" % e)
+
+
+def save_dur():
+    if not _dur_dirty[0]:
+        return
+    try:
+        tmp = DUR_PATH + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(DUR, f, ensure_ascii=False)
+        os.replace(tmp, DUR_PATH)
+        _dur_dirty[0] = False
+    except Exception as e:
+        log("[dur] 保存失败: %s" % e)
+
+
+def secs(text):
+    """'01:14' / '1:02:03' -> 秒。"""
+    try:
+        parts = [int(x) for x in str(text).strip().split(":")]
+    except Exception:
+        return 0
+    total = 0
+    for p in parts:
+        total = total * 60 + p
+    return total
+
+
+def fmt_dur(s):
+    s = int(s or 0)
+    if s <= 0:
+        return ""
+    h, m, sec = s // 3600, (s % 3600) // 60, s % 60
+    if h:
+        return "%d:%02d:%02d" % (h, m, sec)
+    return "%d:%02d" % (m, sec)
+
+
+def dur_info(aid):
+    hit = DUR.get(aid)
+    if not hit or time.time() - hit.get("t", 0) > DUR_TTL:
+        return None
+    return hit
+
+
+def note_dur(aid, videos):
+    if not aid or not videos:
+        return
+    ds = [secs(v.get("dur") or "") for v in videos]
+    ds = [d for d in ds if d > 0]
+    with _dur_lock:
+        DUR[aid] = {"n": len(videos), "max": max(ds) if ds else 0,
+                    "sum": sum(ds), "t": int(time.time())}
+        _dur_dirty[0] = True
 
 VIDEO_ONLY = True
 MAX_PAGES = 3
@@ -396,13 +470,37 @@ class Browser:
     const d = new DOMParser().parseFromString(t, 'text/html');
     const h1 = d.querySelector('h1');
     const og = d.querySelector('meta[property="og:image"]');
-    const srcs = [...d.querySelectorAll('source')].map(s => s.getAttribute('src')).filter(Boolean);
     const imgs = [...d.querySelectorAll('img')].map(i => i.getAttribute('src'))
       .filter(u => u && /s\d+\.erome\.com/.test(u) && !/thumbs/.test(u));
+    // 一个专辑里可能有很多个视频：按 div.video 逐个取（不再只留 4 个）
+    const vids = [];
+    d.querySelectorAll('div.video').forEach(div => {
+      const v = div.querySelector('video');
+      if (!v) return;
+      const cand = [...v.querySelectorAll('source')].map(s => ({
+        src: s.getAttribute('src') || '',
+        type: (s.getAttribute('type') || '').toLowerCase(),
+        res: parseInt(s.getAttribute('res') || '0', 10) || 0
+      })).filter(o => o.src && !/_audio/i.test(o.src) && !o.type.includes('audio'));
+      if (!cand.length) return;
+      cand.sort((a, b) => b.res - a.res);
+      const span = div.querySelector('.duration');
+      vids.push({src: cand[0].src, res: cand[0].res, dur: span ? (span.textContent || '').trim() : ''});
+    });
+    if (!vids.length) {
+      // 兜底：老结构 / 弹层里才有 source 的情况
+      const seen = new Set();
+      [...d.querySelectorAll('source')].forEach(s => {
+        const u = s.getAttribute('src') || '';
+        if (!u || seen.has(u) || /_audio/i.test(u)) return;
+        seen.add(u);
+        vids.push({src: u, res: parseInt(s.getAttribute('res') || '0', 10) || 0, dur: ''});
+      });
+    }
     const name = h1 ? (h1.textContent || '').trim() : (d.title || '').split(' - ')[0];
     return JSON.stringify({status: r.status, name: name,
       poster: og ? og.getAttribute('content') : (imgs[0] || ''),
-      srcs: [...new Set(srcs)].slice(0, 4), pics: imgs.length});
+      videos: vids, srcs: vids.map(v => v.src), pics: imgs.length});
   } catch (e) { return JSON.stringify({error: String(e)}); }
 })()""" % aid
         data = None
@@ -560,12 +658,45 @@ def to_row(raw, video_only=VIDEO_ONLY):
     aid = raw.get("id") or ""
     if not aid:
         return None
+    info = dur_info(aid)
+    if info and info.get("max"):
+        # 海报上直接看得到「最长 02:31」，避免点进很短的视频
+        marks.insert(1 if nv else 0, "最长 " + fmt_dur(info["max"]))
     return {
         "vod_id": aid,
         "vod_name": clean(raw.get("name") or aid) or aid,
         "vod_pic": raw.get("pic") or "",
         "vod_remarks": " · ".join(marks),
     }
+
+
+def prefetch_durations(aids, limit=24):
+    """后台补齐时长（第一次没有缓存时，海报上先只显示视频数）。"""
+    todo = [a for a in aids if a and not dur_info(a)][:limit]
+    if not todo:
+        return
+    with _prefetch_lock:
+        if _prefetch_running[0]:
+            return
+        _prefetch_running[0] = True
+
+    def worker():
+        try:
+            done = 0
+            for aid in todo:
+                try:
+                    d = BROWSER.detail_rows(aid) or {}
+                    note_dur(aid, d.get("videos") or [])
+                    done += 1
+                except Exception as e:
+                    log("[dur] %s 取时长失败: %s" % (aid, e))
+                time.sleep(0.2)
+            save_dur()
+            log("[dur] 补齐 %d 个专辑的时长" % done)
+        finally:
+            _prefetch_running[0] = False
+
+    threading.Thread(target=worker, daemon=True).start()
 
 
 def gather(path_fmt, pg, want=24):
@@ -588,6 +719,11 @@ def gather(path_fmt, pg, want=24):
         if len(rows) >= want:
             break
         p += 1
+    # 海报上的「最长 mm:ss」来自缓存；没缓存就在后台慢慢补，下次进分类就能看到
+    try:
+        prefetch_durations([r["vod_id"] for r in rows])
+    except Exception:
+        pass
     return rows
 
 
@@ -596,8 +732,15 @@ def parse_detail(aid):
     if not d or d.get("error"):
         log("[detail] %s 失败: %s" % (aid, (d or {}).get("error")))
         return None
-    srcs = d.get("srcs") or []
-    return {"aid": aid, "name": d.get("name") or aid, "srcs": srcs[:4],
+    vids = d.get("videos") or []
+    if not vids:
+        vids = [{"src": s, "dur": ""} for s in (d.get("srcs") or [])]
+    note_dur(aid, vids)
+    ds = [secs(v.get("dur") or "") for v in vids]
+    ds = [x for x in ds if x > 0]
+    return {"aid": aid, "name": d.get("name") or aid, "videos": vids,
+            "nv": len(vids), "max_dur": max(ds) if ds else 0,
+            "sum_dur": sum(ds),
             "poster": d.get("poster") or "", "pics": d.get("pics") or 0,
             "page": SITE + "/a/" + aid}
 
@@ -780,6 +923,7 @@ class Handler(BaseHTTPRequestHandler):
                 aid = aid.rstrip("/").split("/")[-1]
             try:
                 d = parse_detail(aid)
+                save_dur()
             except Exception as e:
                 log("[detail] %s 失败: %s" % (aid, e))
                 d = None
@@ -788,16 +932,31 @@ class Handler(BaseHTTPRequestHandler):
                                   "vod_content": "详情页拉取失败"}]))
                 return
             host = self._host()
-            lines = ["%s$%s" % ("线路%d" % (i + 1), proxy_url(host, s))
-                     for i, s in enumerate(d["srcs"])]
+            vids = d["videos"]
+            # 一个合集里的多个视频 = 多集（不是多线路）；按时长从长到短排，最长的先播
+            ordered = sorted(vids, key=lambda v: secs(v.get("dur") or ""), reverse=True)
+            eps = []
+            for i, v in enumerate(ordered, 1):
+                label = "第%02d集" % i
+                dd = fmt_dur(secs(v.get("dur") or ""))
+                if dd:
+                    label += " " + dd
+                eps.append("%s$%s" % (label, proxy_url(host, v["src"])))
+            marks = ["视频%d" % d["nv"]]
+            if d["max_dur"]:
+                marks.append("最长 " + fmt_dur(d["max_dur"]))
+            if d["pics"]:
+                marks.append("图%d" % d["pics"])
             item = {
                 "vod_id": d["aid"],
                 "vod_name": d["name"],
                 "vod_pic": d["poster"],
-                "vod_content": "[网关 %s] 图片 %d 张%s" % (
-                    VER, d["pics"], "" if lines else "；该专辑没有视频（纯图集）"),
-                "vod_play_from": "EroMe" if lines else "",
-                "vod_play_url": "#".join(lines),
+                "vod_remarks": " · ".join(marks),
+                "vod_content": "[网关 %s] %s%s" % (
+                    VER, " · ".join(marks),
+                    "" if eps else "；该专辑没有视频（纯图集）"),
+                "vod_play_from": "EroMe" if eps else "",
+                "vod_play_url": "#".join(eps),
             }
             self._json(pack([item], 1, 1, 1))
             return
@@ -872,6 +1031,7 @@ def main():
         s.close()
 
     log("erome-gateway %s starting on 0.0.0.0:%d" % (VER, args.port))
+    load_dur()
     BROWSER.start()
     try:
         raw = BROWSER.list_rows(LIST_PATH["feed"] % 1)
@@ -879,6 +1039,8 @@ def main():
         log("[warm] feed %d items（原始 %d 条）" % (len(rows), len(raw)))
         if not rows:
             log("[warm] feed 为空：可能是 cookie 失效（重跑 erome_login.py --grab）")
+        else:
+            prefetch_durations([r["vod_id"] for r in rows], limit=12)
     except Exception as e:
         log("[warm] failed:", e)
 
@@ -894,6 +1056,7 @@ def main():
         pass
     finally:
         stop_evt.set()
+        save_dur()
         BROWSER.stop()
     return 0
 

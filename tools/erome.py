@@ -29,7 +29,7 @@ try:
 except Exception:
     requests = None
 
-VER = "v6"
+VER = "v7"
 BASE = "https://www.erome.com"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
@@ -55,6 +55,72 @@ CATS = [
 
 # 需要登录 cookie 才能有内容的分类（游客访问会返回 0 个专辑）
 LOGIN_REQUIRED = ("feed", "feed_posts", "feed_reposts", "liked", "saved")
+
+# 详情页结构（注意：站点原始 HTML 用的是**单引号**属性，浏览器 DOM 才变成双引号）
+_VIDEO_BLOCK_RE = re.compile(r"<div\s+class=['\"]video['\"]\s*>(.*?)</div>", re.S)
+_TAG_RE = re.compile(r"<(?:source|span)\b[^>]*>", re.I)
+_ATTR_RE = re.compile(r"([a-zA-Z0-9_-]+)\s*=\s*(?:'([^']*)'|\"([^\"]*)\")")
+_COLON_RE = re.compile(r"^\s*(\d{1,2}:\d{2}(?::\d{2})?)\s*$")
+_DUR_RE = re.compile(r"""class=['"]duration['"][^>]*>\s*(\d{1,2}:\d{2}(?::\d{2})?)""", re.I)
+
+
+def _attrs(tag):
+    out = {}
+    for k, v1, v2 in _ATTR_RE.findall(tag):
+        out[k.lower()] = v1 if v1 != "" or v2 == "" else v2
+    return out
+
+
+def _parse_videos(html):
+    """-> [(src, dur_text)]，一个 div.video = 一个视频（合集里可能有很多个）。"""
+    out = []
+    for blk in _VIDEO_BLOCK_RE.findall(html):
+        best = (0, "")
+        dur = ""
+        for tag in _TAG_RE.findall(blk):
+            a = _attrs(tag)
+            src = a.get("src") or ""
+            typ = (a.get("type") or "").lower()
+            if src and "audio" not in typ and "_audio" not in src.lower():
+                try:
+                    res = int(a.get("res") or 0)
+                except Exception:
+                    res = 0
+                if res >= best[0]:
+                    best = (res, src)
+        dm = _DUR_RE.search(blk)
+        if dm:
+            dur = dm.group(1)
+        if best[1]:
+            out.append((best[1], dur))
+    if not out:
+        # 兜底：只认 <source>，不算时长
+        for tag in _TAG_RE.findall(html):
+            a = _attrs(tag)
+            src = a.get("src") or ""
+            if src and "audio" not in (a.get("type") or "").lower() and "_audio" not in src.lower():
+                out.append((src, ""))
+    return out
+
+
+def _secs(text):
+    """'01:14' / '1:02:03' -> 秒（解析不了算 0）。"""
+    try:
+        parts = [int(x) for x in str(text).strip().split(":")]
+    except Exception:
+        return 0
+    total = 0
+    for p in parts:
+        total = total * 60 + p
+    return total
+
+
+def _fmt(sec):
+    sec = int(sec or 0)
+    if sec <= 0:
+        return ""
+    h, m, s = sec // 3600, (sec % 3600) // 60, sec % 60
+    return ("%d:%02d:%02d" % (h, m, s)) if h else ("%d:%02d" % (m, s))
 
 _ALBUM_RE = re.compile(r'<div class="[^"]*\balbum\b[^"]*"[^>]*>.*?</div>\s*</div>\s*</div>', re.S)
 _LINK_RE = re.compile(r'<a[^>]+class="album-link"[^>]+href="(https?://[^"]+/a/[A-Za-z0-9]+)"', re.S)
@@ -290,26 +356,37 @@ class Spider(_Base):
         t = re.search(r'<title>(.*?)</title>', html, re.S)
         if not h1 and t:
             name = _clean(t.group(1)).split(' - ')[0]
-        srcs = []
-        for s in _SOURCE_RE.findall(html):
-            if s not in srcs:
-                srcs.append(s)
         pics = [u for u in re.findall(r'https?://s\d+\.erome\.com/[^"\'\s]+\.(?:jpg|jpeg|png)', html)
                 if '/thumbs/' not in u]
         poster = pics[0] if pics else ""
-        lines = []
-        for i, s in enumerate(srcs[:4]):
-            lines.append("线路%d$%s" % (i + 1, s))
-            self._ref[s] = url
+        # 一个合集里可能有多个视频：按 div.video 逐个取（时长来自 .duration），
+        # 视频 = 分集（同一个播放线路里的 # 分隔），不是多线路。
+        vids = _parse_videos(html)
+        vids.sort(key=lambda v: _secs(v[1]), reverse=True)
+        lines, ds = [], []
+        for i, (src, dur) in enumerate(vids):
+            label = "第%02d集" % (i + 1)
+            if dur:
+                label += " " + dur
+                ds.append(_secs(dur))
+            lines.append("%s$%s" % (label, src))
+            self._ref[src] = url
         play_from = "EroMe" if lines else ""
         play_url = "#".join(lines)
-        note = "[%s] 图片 %d 张" % (VER, len(pics))
+        marks = []
+        if lines:
+            marks.append("视频%d" % len(lines))
+            if ds:
+                marks.append("最长 " + _fmt(max(ds)))
+        marks.append("图%d" % len(pics))
+        note = "[%s] %s" % (VER, " · ".join(marks))
         if not lines:
             note += "；该专辑没有视频（纯图集）"
         return {"list": [{
             "vod_id": aid,
             "vod_name": name,
             "vod_pic": poster,
+            "vod_remarks": " · ".join(marks),
             "vod_content": note,
             "vod_play_from": play_from,
             "vod_play_url": play_url,
