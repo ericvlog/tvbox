@@ -4199,49 +4199,17 @@
       }
     },
     {
-      "key": "XOJAV(gm)",
-      "name": "XOJAV[gm]",
+      "key": "xojav-py",
+      "name": "XOJAV[py]",
       "type": 3,
       "searchable": 1,
       "quickSearch": 1,
-      "changeable": 0,
-      "jar": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/gm/GM.jar",
       "style": {
         "type": "rect",
         "ratio": 1.78
       },
-      "api": "csp_GM",
-      "ext": {
-        "userScript": "https://raw.githubusercontent.com/ericvlog/tvbox/main/resources/tv/gm/xojav.user.js",
-        "debug": false,
-        "webViewSettings": {
-          "blockNetworkImage": true,
-          "blockList": [
-            "*.css*",
-            "*.ico*",
-            "*.png*",
-            "*.svg",
-            "https://*.googleapis.com/*",
-            "https://*.googletagmanager.com/*",
-            "https://*.magsrv.com/*",
-            "https://*.pemsrv.com/*"
-          ]
-        },
-        "spider": {
-          "homeContent": {
-            "loadUrl": "https://xojav.tv/?lang=zh"
-          },
-          "categoryContent": {
-            "loadUrl": "https://xojav.tv/${tid}${sort_by:-}&mode=async&function=get_block&from=${pg:-1}"
-          },
-          "detailContent": {
-            "loadUrl": "https://xojav.tv/videos/${id}"
-          },
-          "searchContent": {
-            "loadUrl": "https://xojav.tv/search/${key}/?mode=async&function=get_block&sort_by=most_relevant&from_videos=${pg:-1}"
-          }
-        }
-      }
+      "api": "https://raw.githubusercontent.com/ericvlog/tvbox/main/tools/xojav.py",
+      "ext": ""
     },
     {
       "api": "csp_Hsck",
