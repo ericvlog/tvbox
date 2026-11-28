@@ -642,35 +642,56 @@ def resolve_tid(tid):
     return keys[0]
 
 
+def _marks(nv, np_, user, aid):
+    """视频数 · 最长 mm:ss · 图数 · 上传者 —— 时长来自缓存，缓存没到就先不写。"""
+    marks = []
+    if nv:
+        marks.append("视频%d" % nv)
+    info = dur_info(aid)
+    if info and info.get("max"):
+        marks.append("最长 " + fmt_dur(info["max"]))
+    if np_:
+        marks.append("图%d" % np_)
+    if user:
+        marks.append(clean(user))
+    return " · ".join(marks)
+
+
+def apply_dur(rows):
+    """列表下发前，用最新的时长缓存重算一遍 marks（缓存里旧行也能补上「最长」）。"""
+    for r in rows:
+        if "_nv" not in r:
+            continue          # 详情行自己带 marks，不要覆盖
+        try:
+            nv = int(r.get("_nv") or 0)
+            np_ = int(r.get("_np") or 0)
+            r["vod_remarks"] = _marks(nv, np_, r.get("_user") or "", r.get("vod_id") or "")
+        except Exception:
+            pass
+    return rows
+
+
 def to_row(raw, video_only=VIDEO_ONLY):
     """把页面里解析出来的原始条目转成 CMS 行；纯图集按开关过滤掉。"""
     nv = int(raw.get("nv") or 0)
     np_ = int(raw.get("np") or 0)
     if video_only and nv <= 0:
         return None
-    marks = []
-    if nv:
-        marks.append("视频%d" % nv)
-    if np_:
-        marks.append("图%d" % np_)
-    if raw.get("user"):
-        marks.append(clean(raw["user"]))
     aid = raw.get("id") or ""
     if not aid:
         return None
-    info = dur_info(aid)
-    if info and info.get("max"):
-        # 海报上直接看得到「最长 02:31」，避免点进很短的视频
-        marks.insert(1 if nv else 0, "最长 " + fmt_dur(info["max"]))
     return {
         "vod_id": aid,
         "vod_name": clean(raw.get("name") or aid) or aid,
         "vod_pic": raw.get("pic") or "",
-        "vod_remarks": " · ".join(marks),
+        "vod_remarks": _marks(nv, np_, raw.get("user") or "", aid),
+        "_nv": nv,
+        "_np": np_,
+        "_user": clean(raw.get("user") or ""),
     }
 
 
-def prefetch_durations(aids, limit=24):
+def prefetch_durations(aids, limit=40):
     """后台补齐时长（第一次没有缓存时，海报上先只显示视频数）。"""
     todo = [a for a in aids if a and not dur_info(a)][:limit]
     if not todo:
@@ -690,7 +711,7 @@ def prefetch_durations(aids, limit=24):
                     done += 1
                 except Exception as e:
                     log("[dur] %s 取时长失败: %s" % (aid, e))
-                time.sleep(0.2)
+                time.sleep(0.1)
             save_dur()
             log("[dur] 补齐 %d 个专辑的时长" % done)
         finally:
@@ -770,6 +791,9 @@ def class_items():
 
 
 def pack(items, page=1, pagecount=999, total=9999, msg="ok", with_class=False):
+    # 下发前用最新时长缓存重算 marks：第一次没缓存的行，第二次进来就能看到「最长 mm:ss」
+    if items:
+        apply_dur(items)
     body = {"code": 1, "msg": msg, "page": page, "pagecount": pagecount,
             "limit": len(items) or 20, "total": total, "list": items}
     if with_class:
